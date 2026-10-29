@@ -1,897 +1,894 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-<meta charset="UTF-8">  
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  
-<meta name="apple-mobile-web-app-capable" content="yes">  
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">  
-<meta name="apple-mobile-web-app-title" content="SIUH Cards">  
-<title>SIUH Cardiology Fellowship Hub</title>  
-<style>  
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');  
-:root{  
-  --primary:#1a56db;--primary-light:#3b82f6;--primary-dark:#1e3a5f;--primary-bg:#eff6ff;  
-  --accent:#f59e0b;--accent-light:#fef3c7;  
-  --bg:#f8fafc;--card-bg:#ffffff;--text:#0f172a;--text-mid:#475569;--text-light:#94a3b8;  
-  --success:#059669;--success-bg:#ecfdf5;--success-border:#a7f3d0;  
-  --warning:#d97706;--warning-bg:#fffbeb;--warning-border:#fde68a;  
-  --danger:#dc2626;--danger-bg:#fef2f2;--danger-border:#fecaca;  
-  --info:#7c3aed;--info-bg:#f5f3ff;--info-border:#ddd6fe;  
-  --border:#e2e8f0;--border-light:#f1f5f9;  
-  --shadow:0 1px 3px rgba(0,0,0,0.04),0 1px 2px rgba(0,0,0,0.06);  
-  --shadow-md:0 4px 6px -1px rgba(0,0,0,0.07),0 2px 4px -2px rgba(0,0,0,0.05);  
-  --shadow-lg:0 10px 15px -3px rgba(0,0,0,0.08),0 4px 6px -4px rgba(0,0,0,0.05);  
-  --radius:14px;--radius-sm:10px;--radius-xs:8px;  
-}  
-*{margin:0;padding:0;box-sizing:border-box;}  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="robots" content="noindex, nofollow">
+<meta name="apple-mobile-web-app-title" content="SIUH Cards">
+<title>SIUH Cardiology Fellowship Hub</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+:root{
+  --primary:#1a56db;--primary-light:#3b82f6;--primary-dark:#1e3a5f;--primary-bg:#eff6ff;
+  --accent:#f59e0b;--accent-light:#fef3c7;
+  --bg:#f8fafc;--card-bg:#ffffff;--text:#0f172a;--text-mid:#475569;--text-light:#64748b;
+  --success:#059669;--success-bg:#ecfdf5;--success-border:#a7f3d0;
+  --warning:#d97706;--warning-bg:#fffbeb;--warning-border:#fde68a;
+  --danger:#dc2626;--danger-bg:#fef2f2;--danger-border:#fecaca;
+  --info:#7c3aed;--info-bg:#f5f3ff;--info-border:#ddd6fe;
+  --border:#e2e8f0;--border-light:#f1f5f9;
+  --shadow:0 1px 3px rgba(0,0,0,0.04),0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md:0 4px 6px -1px rgba(0,0,0,0.07),0 2px 4px -2px rgba(0,0,0,0.05);
+  --shadow-lg:0 10px 15px -3px rgba(0,0,0,0.08),0 4px 6px -4px rgba(0,0,0,0.05);
+  --radius:14px;--radius-sm:10px;--radius-xs:8px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;}
 
-#password-screen{position:fixed;inset:0;z-index:9999;background:linear-gradient(160deg,#0f172a 0%,#1e3a5f 40%,#1a56db 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;padding:20px;}  
-#password-screen.hidden{display:none;}  
-#password-screen h1{color:#fff;font-size:1.4em;font-weight:800;letter-spacing:-0.02em;margin-bottom:4px;text-align:center;}  
-#password-screen .subtitle{color:rgba(255,255,255,0.7);font-size:0.85em;font-weight:500;margin-bottom:32px;text-align:center;}  
-.logo-icon{font-size:3.5em;margin-bottom:20px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));}  
-#pw-input{padding:14px 20px;border:2px solid rgba(255,255,255,0.2);border-radius:var(--radius-xs);background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);color:#fff;font-size:16px;font-family:inherit;width:280px;text-align:center;outline:none;transition:border-color 0.2s;}  
-#pw-input::placeholder{color:rgba(255,255,255,0.4);}  
-#pw-input:focus{border-color:rgba(255,255,255,0.5);}  
-#pw-btn{margin-top:14px;padding:13px 44px;border:none;border-radius:var(--radius-xs);background:var(--accent);color:#0f172a;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:transform 0.1s,box-shadow 0.2s;box-shadow:0 4px 14px rgba(245,158,11,0.4);}  
-#pw-btn:active{transform:scale(0.97);}  
+#password-screen{position:fixed;inset:0;z-index:9999;background:linear-gradient(160deg,#0f172a 0%,#1e3a5f 40%,#1a56db 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;padding:20px;}
+#password-screen.hidden{display:none;}
+#password-screen h1{color:#fff;font-size:1.4em;font-weight:800;letter-spacing:-0.02em;margin-bottom:4px;text-align:center;}
+#password-screen .subtitle{color:rgba(255,255,255,0.7);font-size:0.85em;font-weight:500;margin-bottom:32px;text-align:center;}
+.logo-icon{font-size:3.5em;margin-bottom:20px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));}
+#pw-input{padding:14px 20px;border:2px solid rgba(255,255,255,0.2);border-radius:var(--radius-xs);background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);color:#fff;font-size:16px;font-family:inherit;width:280px;text-align:center;outline:none;transition:border-color 0.2s;}
+#pw-input::placeholder{color:rgba(255,255,255,0.4);}
+#pw-input:focus{border-color:rgba(255,255,255,0.5);}
+#pw-btn{margin-top:14px;padding:13px 44px;border:none;border-radius:var(--radius-xs);background:var(--accent);color:#0f172a;font-size:15px;font-weight:700;font-family:inherit;cursor:pointer;transition:transform 0.1s,box-shadow 0.2s;box-shadow:0 4px 14px rgba(245,158,11,0.4);}
+#pw-btn:active{transform:scale(0.97);}
 #pw-error{color:#fca5a5;margin-top:12px;font-size:0.82em;min-height:20px;font-weight:500;}
 
 #app{display:none;}#app.visible{display:block;}
 
-header{background:linear-gradient(135deg,var(--primary-dark),var(--primary));color:#fff;padding:18px 20px 14px;position:sticky;top:0;z-index:100;box-shadow:0 4px 20px rgba(26,86,219,0.2);}  
-header h1{font-size:1.1em;font-weight:800;letter-spacing:-0.02em;}  
+header{background:linear-gradient(135deg,var(--primary-dark),var(--primary));color:#fff;padding:18px 20px 14px;box-shadow:0 4px 20px rgba(26,86,219,0.2);}
+header h1{font-size:1.1em;font-weight:800;letter-spacing:-0.02em;}
 header .sub{font-size:0.72em;opacity:0.7;margin-top:3px;font-weight:500;}
 
-.tab-nav{display:flex;overflow-x:auto;background:var(--card-bg);border-bottom:1px solid var(--border);position:sticky;top:62px;z-index:98;scrollbar-width:none;padding:0 4px;}  
-.tab-nav::-webkit-scrollbar{display:none;}  
-.tab-btn{flex:0 0 auto;padding:13px 15px;border:none;background:none;font-size:0.78em;font-weight:600;color:var(--text-light);cursor:pointer;white-space:nowrap;position:relative;font-family:inherit;transition:color 0.2s;}  
-.tab-btn.active{color:var(--primary);}  
+.tab-nav{display:flex;overflow-x:auto;background:var(--card-bg);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:98;scrollbar-width:none;padding:0 4px;}
+.tab-nav::-webkit-scrollbar{display:none;}
+.tab-btn{flex:0 0 auto;padding:13px 15px;border:none;background:none;font-size:0.78em;font-weight:600;color:var(--text-light);cursor:pointer;white-space:nowrap;position:relative;font-family:inherit;transition:color 0.2s;}
+.tab-btn.active{color:var(--primary);}
 .tab-btn.active::after{content:'';position:absolute;bottom:0;left:12px;right:12px;height:2.5px;background:var(--primary);border-radius:2px 2px 0 0;}
 
-.tab-content{display:none;padding:16px;padding-bottom:100px;}  
+.tab-content{display:none;padding:16px;padding-bottom:100px;}
 .tab-content.active{display:block;}
 
-.card{background:var(--card-bg);border-radius:var(--radius);padding:22px;margin-bottom:16px;box-shadow:var(--shadow);border:1px solid var(--border);}  
-.card h2{font-size:1em;color:var(--text);font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px;letter-spacing:-0.02em;}  
-.card h3{font-size:0.88em;color:var(--primary-dark);font-weight:700;margin:18px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--primary-bg);letter-spacing:-0.01em;}  
+.card{background:var(--card-bg);border-radius:var(--radius);padding:22px;margin-bottom:16px;box-shadow:var(--shadow);border:1px solid var(--border);}
+.card h2{font-size:1em;color:var(--text);font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px;letter-spacing:-0.02em;}
+.card h3{font-size:0.88em;color:var(--primary-dark);font-weight:700;margin:18px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--primary-bg);letter-spacing:-0.01em;}
 .card h4{font-size:0.82em;color:var(--text);margin:14px 0 8px;font-weight:700;letter-spacing:-0.01em;}
 
-.proc-item{background:var(--card-bg);border-radius:var(--radius);margin-bottom:14px;box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden;transition:box-shadow 0.2s;}  
-.proc-item.open{box-shadow:var(--shadow-lg);border-color:var(--primary-light);}  
-.proc-header{display:flex;align-items:center;gap:14px;padding:18px 22px;cursor:pointer;user-select:none;transition:background 0.15s;}  
-.proc-header:active{background:var(--primary-bg);}  
-.proc-icon{font-size:1.6em;flex-shrink:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--primary-bg);border-radius:12px;}  
-.proc-title{flex:1;}  
-.proc-title h3{font-size:0.92em;color:var(--text);margin:0;border:none;padding:0;font-weight:700;}  
-.proc-title p{font-size:0.76em;color:var(--text-light);margin-top:3px;font-weight:500;}  
-.proc-chevron{color:var(--text-light);transition:transform 0.3s;font-size:0.9em;width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:var(--border-light);border-radius:50%;}  
-.proc-item.open .proc-chevron{transform:rotate(180deg);background:var(--primary-bg);color:var(--primary);}  
-.proc-body{display:none;padding:0 22px 22px;}  
+.proc-item{background:var(--card-bg);border-radius:var(--radius);margin-bottom:14px;box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden;transition:box-shadow 0.2s;}
+.proc-item.open{box-shadow:var(--shadow-lg);border-color:var(--primary-light);}
+.proc-header{display:flex;align-items:center;gap:14px;padding:18px 22px;cursor:pointer;user-select:none;transition:background 0.15s;}
+.proc-header:active{background:var(--primary-bg);}
+.proc-icon{font-size:1.6em;flex-shrink:0;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--primary-bg);border-radius:12px;}
+.proc-title{flex:1;}
+.proc-title h3{font-size:0.92em;color:var(--text);margin:0;border:none;padding:0;font-weight:700;}
+.proc-title p{font-size:0.76em;color:var(--text-light);margin-top:3px;font-weight:500;}
+.proc-chevron{color:var(--text-light);transition:transform 0.3s;font-size:0.9em;width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:var(--border-light);border-radius:50%;}
+.proc-item.open .proc-chevron{transform:rotate(180deg);background:var(--primary-bg);color:var(--primary);}
+.proc-body{display:none;padding:0 22px 22px;}
 .proc-item.open .proc-body{display:block;}
 
-.step-list{counter-reset:step;list-style:none;padding:0;margin:4px 0;}  
-.step-list li{counter-increment:step;position:relative;padding:14px 16px 14px 52px;margin-bottom:6px;background:var(--border-light);border-radius:var(--radius-xs);font-size:0.85em;border-left:3px solid var(--primary-light);transition:background 0.15s;}  
-.step-list li:last-child{margin-bottom:0;}  
+.step-list{counter-reset:step;list-style:none;padding:0;margin:4px 0;}
+.step-list li{counter-increment:step;position:relative;padding:14px 16px 14px 52px;margin-bottom:6px;background:var(--border-light);border-radius:var(--radius-xs);font-size:0.85em;border-left:3px solid var(--primary-light);transition:background 0.15s;}
+.step-list li:last-child{margin-bottom:0;}
 .step-list li::before{content:counter(step);position:absolute;left:14px;top:14px;width:26px;height:26px;border-radius:8px;background:var(--primary);color:#fff;font-size:0.72em;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 4px rgba(26,86,219,0.3);}
 
-.checklist{list-style:none;padding:0;}  
-.checklist li{padding:12px 14px 12px 38px;position:relative;font-size:0.85em;margin-bottom:5px;background:var(--border-light);border-radius:var(--radius-xs);font-weight:500;border-left:3px solid var(--primary-light);}  
+.checklist{list-style:none;padding:0;}
+.checklist li{padding:12px 14px 12px 38px;position:relative;font-size:0.85em;margin-bottom:5px;background:var(--border-light);border-radius:var(--radius-xs);font-weight:500;border-left:3px solid var(--primary-light);}
 .checklist li::before{content:'';position:absolute;left:14px;top:15px;width:16px;height:16px;border:2px solid var(--primary-light);border-radius:4px;background:#fff;}
 
-.supply-table{width:100%;border-collapse:separate;border-spacing:0;font-size:0.83em;margin:10px 0;border-radius:var(--radius-xs);overflow:hidden;border:1px solid var(--border);}  
-.supply-table th{text-align:left;padding:10px 14px;background:var(--primary-dark);color:#fff;font-weight:600;font-size:0.9em;letter-spacing:0.02em;}  
-.supply-table td{padding:10px 14px;border-bottom:1px solid var(--border-light);vertical-align:top;}  
-.supply-table tr:last-child td{border-bottom:none;}  
-.supply-table tr:nth-child(even) td{background:var(--border-light);}  
+.supply-table{width:100%;border-collapse:separate;border-spacing:0;font-size:0.83em;margin:10px 0;border-radius:var(--radius-xs);overflow:hidden;border:1px solid var(--border);}
+.supply-table th{text-align:left;padding:10px 14px;background:var(--primary-dark);color:#fff;font-weight:600;font-size:0.9em;letter-spacing:0.02em;}
+.supply-table td{padding:10px 14px;border-bottom:1px solid var(--border-light);vertical-align:top;}
+.supply-table tr:last-child td{border-bottom:none;}
+.supply-table tr:nth-child(even) td{background:var(--border-light);}
 .supply-table tr:hover td{background:var(--primary-bg);}
 
-.tip-box{background:var(--success-bg);border:1px solid var(--success-border);border-left:4px solid var(--success);border-radius:var(--radius-xs);padding:14px 16px;margin:14px 0;font-size:0.84em;}  
+.tip-box{background:var(--success-bg);border:1px solid var(--success-border);border-left:4px solid var(--success);border-radius:var(--radius-xs);padding:14px 16px;margin:14px 0;font-size:0.84em;}
 .tip-box .tip-label{font-weight:700;color:var(--success);margin-bottom:5px;font-size:0.95em;}
 
-.warn-box{background:var(--warning-bg);border:1px solid var(--warning-border);border-left:4px solid var(--warning);border-radius:var(--radius-xs);padding:14px 16px;margin:14px 0;font-size:0.84em;}  
+.warn-box{background:var(--warning-bg);border:1px solid var(--warning-border);border-left:4px solid var(--warning);border-radius:var(--radius-xs);padding:14px 16px;margin:14px 0;font-size:0.84em;}
 .warn-box .warn-label{font-weight:700;color:var(--warning);margin-bottom:5px;font-size:0.95em;}
 
-.danger-box{background:var(--danger-bg);border:1px solid var(--danger-border);border-left:4px solid var(--danger);border-radius:var(--radius-xs);padding:14px 16px;margin:14px 0;font-size:0.84em;}  
+.danger-box{background:var(--danger-bg);border:1px solid var(--danger-border);border-left:4px solid var(--danger);border-radius:var(--radius-xs);padding:14px 16px;margin:14px 0;font-size:0.84em;}
 .danger-box .danger-label{font-weight:700;color:var(--danger);margin-bottom:5px;font-size:0.95em;}
 
 .info-box{background:var(--info-bg);border:1px solid var(--info-border);border-left:4px solid var(--info);border-radius:var(--radius-xs);padding:14px 16px;margin:14px 0;font-size:0.82em;color:#5b21b6;}
 
-.sub-tabs{display:flex;margin:14px 0 0;gap:4px;flex-wrap:wrap;}  
-.sub-tab{padding:8px 14px;font-size:0.76em;font-weight:600;cursor:pointer;color:var(--text-mid);border:1.5px solid var(--border);background:var(--card-bg);border-radius:20px;font-family:inherit;transition:all 0.15s;}  
-.sub-tab.active{color:var(--primary);background:var(--primary-bg);border-color:var(--primary-light);}  
-.sub-panel{display:none;padding:14px 0 0;}  
+.sub-tabs{display:flex;margin:14px 0 0;gap:4px;flex-wrap:wrap;}
+.sub-tab{padding:8px 14px;font-size:0.76em;font-weight:600;cursor:pointer;color:var(--text-mid);border:1.5px solid var(--border);background:var(--card-bg);border-radius:20px;font-family:inherit;transition:all 0.15s;}
+.sub-tab.active{color:var(--primary);background:var(--primary-bg);border-color:var(--primary-light);}
+.sub-panel{display:none;padding:14px 0 0;}
 .sub-panel.active{display:block;}
 
-.waveform-diagram{background:linear-gradient(180deg,#0f172a,#1e293b);border-radius:var(--radius-sm);padding:20px;margin:14px 0;text-align:center;box-shadow:inset 0 2px 8px rgba(0,0,0,0.3);}  
+.waveform-diagram{background:linear-gradient(180deg,#0f172a,#1e293b);border-radius:var(--radius-sm);padding:20px;margin:14px 0;text-align:center;box-shadow:inset 0 2px 8px rgba(0,0,0,0.3);}
 .waveform-diagram svg{width:100%;height:auto;}
 
-.phone-group{margin-bottom:4px;}  
-.phone-group-header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--border-light);}  
-.phone-group-header h3{font-size:0.78em;color:var(--primary);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin:0;border:none;padding:0;}  
-.phone-group-header .pg-chev{color:var(--text-light);font-size:0.75em;transition:transform 0.3s;width:22px;height:22px;display:flex;align-items:center;justify-content:center;background:var(--border-light);border-radius:50%;}  
-.phone-group.open .pg-chev{transform:rotate(180deg);}  
-.phone-group-body{display:none;padding:4px 0 12px;}  
+.phone-group{margin-bottom:4px;}
+.phone-group-header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;cursor:pointer;user-select:none;border-bottom:1px solid var(--border-light);}
+.phone-group-header h3{font-size:0.78em;color:var(--primary);text-transform:uppercase;letter-spacing:0.08em;font-weight:700;margin:0;border:none;padding:0;}
+.phone-group-header .pg-chev{color:var(--text-light);font-size:0.75em;transition:transform 0.3s;width:22px;height:22px;display:flex;align-items:center;justify-content:center;background:var(--border-light);border-radius:50%;}
+.phone-group.open .pg-chev{transform:rotate(180deg);}
+.phone-group-body{display:none;padding:4px 0 12px;}
 .phone-group.open .phone-group-body{display:block;}
 
-.phone-entry{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);gap:10px;}  
-.phone-entry:last-child{border-bottom:none;}  
-.phone-entry .name{font-size:0.84em;font-weight:600;flex:1;color:var(--text);}  
-.phone-entry .note{font-size:0.7em;color:var(--text-light);font-weight:500;margin-top:2px;}  
-.phone-entry a,.phone-entry .code{color:var(--primary);text-decoration:none;font-weight:700;font-size:0.8em;padding:6px 14px;background:var(--primary-bg);border-radius:8px;white-space:nowrap;flex-shrink:0;border:1px solid rgba(26,86,219,0.15);transition:background 0.15s;}  
+.phone-entry{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border-light);gap:10px;}
+.phone-entry:last-child{border-bottom:none;}
+.phone-entry .name{font-size:0.84em;font-weight:600;flex:1;color:var(--text);}
+.phone-entry .note{font-size:0.7em;color:var(--text-light);font-weight:500;margin-top:2px;}
+.phone-entry a,.phone-entry .code{color:var(--primary);text-decoration:none;font-weight:700;font-size:0.8em;padding:6px 14px;background:var(--primary-bg);border-radius:8px;white-space:nowrap;flex-shrink:0;border:1px solid rgba(26,86,219,0.15);transition:background 0.15s;}
 .phone-entry a:active{background:#dbeafe;}
 
-.rotation-card{background:var(--card-bg);border-radius:var(--radius);margin-bottom:12px;box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden;transition:box-shadow 0.2s;}  
-.rotation-card.open{box-shadow:var(--shadow-md);}  
-.rotation-header{display:flex;align-items:center;gap:12px;padding:16px 20px;cursor:pointer;user-select:none;}  
-.rotation-header:active{background:var(--primary-bg);}  
-.rotation-emoji{font-size:1.3em;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--primary-bg);border-radius:10px;}  
-.rotation-name{flex:1;font-weight:700;font-size:0.9em;}  
-.rotation-body{display:none;padding:0 20px 20px;font-size:0.85em;}  
-.rotation-card.open .rotation-body{display:block;}  
-.rotation-card.open .rot-chev{transform:rotate(180deg);}  
+.rotation-card{background:var(--card-bg);border-radius:var(--radius);margin-bottom:12px;box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden;transition:box-shadow 0.2s;}
+.rotation-card.open{box-shadow:var(--shadow-md);}
+.rotation-header{display:flex;align-items:center;gap:12px;padding:16px 20px;cursor:pointer;user-select:none;}
+.rotation-header:active{background:var(--primary-bg);}
+.rotation-emoji{font-size:1.3em;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:var(--primary-bg);border-radius:10px;}
+.rotation-name{flex:1;font-weight:700;font-size:0.9em;}
+.rotation-body{display:none;padding:0 20px 20px;font-size:0.85em;}
+.rotation-card.open .rotation-body{display:block;}
+.rotation-card.open .rot-chev{transform:rotate(180deg);}
 .rot-chev{color:var(--text-light);transition:transform 0.3s;font-size:0.85em;width:26px;height:26px;display:flex;align-items:center;justify-content:center;background:var(--border-light);border-radius:50%;}
 
-.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px;}  
-.quick-card{background:var(--card-bg);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:16px 10px;text-align:center;cursor:pointer;transition:all 0.15s;}  
-.quick-card:active{border-color:var(--primary-light);background:var(--primary-bg);transform:scale(0.97);}  
-.quick-card .emoji{font-size:1.7em;margin-bottom:6px;}  
+.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px;}
+.quick-card{background:var(--card-bg);border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:16px 10px;text-align:center;cursor:pointer;transition:all 0.15s;}
+.quick-card:active{border-color:var(--primary-light);background:var(--primary-bg);transform:scale(0.97);}
+.quick-card .emoji{font-size:1.7em;margin-bottom:6px;}
 .quick-card .label{font-size:0.73em;font-weight:700;color:var(--text-mid);letter-spacing:-0.01em;}
 
-.bullet-sub{margin:8px 0 4px 4px;padding:0;list-style:none;font-size:0.92em;}  
-.bullet-sub li{padding:5px 0 5px 18px;position:relative;color:var(--text-mid);line-height:1.5;}  
+.bullet-sub{margin:8px 0 4px 4px;padding:0;list-style:none;font-size:0.92em;}
+.bullet-sub li{padding:5px 0 5px 18px;position:relative;color:var(--text-mid);line-height:1.5;}
 .bullet-sub li::before{content:'•';position:absolute;left:0;color:var(--primary);font-weight:700;}
 
-.contra-list{list-style:none;padding:0;margin:6px 0;}  
-.contra-list li{padding:8px 12px 8px 32px;position:relative;font-size:0.84em;margin-bottom:3px;background:var(--border-light);border-radius:var(--radius-xs);font-weight:500;}  
-.contra-list.absolute li{border-left:3px solid var(--danger);}  
-.contra-list.absolute li::before{content:'✕';position:absolute;left:10px;top:8px;color:var(--danger);font-weight:800;font-size:0.85em;}  
-.contra-list.relative li{border-left:3px solid var(--warning);}  
+.contra-list{list-style:none;padding:0;margin:6px 0;}
+.contra-list li{padding:8px 12px 8px 32px;position:relative;font-size:0.84em;margin-bottom:3px;background:var(--border-light);border-radius:var(--radius-xs);font-weight:500;}
+.contra-list.absolute li{border-left:3px solid var(--danger);}
+.contra-list.absolute li::before{content:'✕';position:absolute;left:10px;top:8px;color:var(--danger);font-weight:800;font-size:0.85em;}
+.contra-list.relative li{border-left:3px solid var(--warning);}
 .contra-list.relative li::before{content:'!';position:absolute;left:12px;top:8px;color:var(--warning);font-weight:800;font-size:0.85em;}
 
-.ref-citation{margin-top:14px;padding:12px 14px;background:var(--border-light);border-radius:var(--radius-xs);font-size:0.78em;color:var(--text-mid);line-height:1.6;}  
+.ref-citation{margin-top:14px;padding:12px 14px;background:var(--border-light);border-radius:var(--radius-xs);font-size:0.78em;color:var(--text-mid);line-height:1.6;}
 .ref-citation a{color:var(--primary);font-weight:600;}
 
-.attending-group{margin-bottom:16px;}  
-.attending-group h4{font-size:0.78em;color:var(--primary);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.06em;font-weight:700;}  
-.attending-group .group-office{font-size:0.76em;color:var(--text-light);margin-bottom:8px;font-style:italic;}  
-.attending-entry{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border-light);gap:10px;}  
-.attending-entry:last-child{border-bottom:none;}  
-.attending-entry .name{font-size:0.84em;font-weight:600;flex:1;}  
+.attending-group{margin-bottom:16px;}
+.attending-group h4{font-size:0.78em;color:var(--primary);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.06em;font-weight:700;}
+.attending-group .group-office{font-size:0.76em;color:var(--text-light);margin-bottom:8px;font-style:italic;}
+.attending-entry{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border-light);gap:10px;}
+.attending-entry:last-child{border-bottom:none;}
+.attending-entry .name{font-size:0.84em;font-weight:600;flex:1;}
 .attending-entry a{color:var(--primary);text-decoration:none;font-weight:700;font-size:0.78em;padding:5px 12px;background:var(--primary-bg);border-radius:8px;white-space:nowrap;flex-shrink:0;border:1px solid rgba(26,86,219,0.15);}
 
-footer{text-align:center;padding:24px 20px;font-size:0.7em;color:var(--text-light);font-weight:500;}  
-footer a{color:var(--primary);text-decoration:none;font-weight:600;}  
-@media(max-width:380px){.quick-grid{grid-template-columns:1fr 1fr;}}  
-@media(min-width:600px){.tab-content{max-width:680px;margin:0 auto;}header{text-align:center;}}  
-.search-hidden{display:none !important;}  
-</style>  
-</head>  
+footer{text-align:center;padding:24px 20px;font-size:0.7em;color:var(--text-light);font-weight:500;}
+footer a{color:var(--primary);text-decoration:none;font-weight:600;}
+@media(max-width:380px){.quick-grid{grid-template-columns:1fr 1fr;}}
+@media(min-width:600px){.tab-content{max-width:680px;margin:0 auto;}header{text-align:center;}}
+.search-hidden{display:none !important;}
+.proc-item,.rotation-card,.phone-group{scroll-margin-top:60px;}
+.ext-group{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end;}
+.disclaimer{margin-top:6px;font-style:italic;}
+[role="button"]:focus-visible{outline:2px solid var(--primary);outline-offset:2px;}
+</style>
+</head>
 <body>
 
-<div id="password-screen">  
-  <div class="logo-icon">🫀</div>  
-  <h1>SIUH Cardiology Fellowship</h1>  
-  <p class="subtitle">Reference Hub</p>  
-  <input type="password" id="pw-input" placeholder="Enter password" autocomplete="off" autofocus>  
-  <button id="pw-btn" onclick="checkPassword()">Enter</button>  
-  <div id="pw-error"></div>  
+<div id="password-screen">
+  <div class="logo-icon">🫀</div>
+  <h1>SIUH Cardiology Fellowship</h1>
+  <p class="subtitle">Reference Hub</p>
+  <input type="password" id="pw-input" placeholder="Enter password" autocomplete="off" autofocus>
+  <button id="pw-btn" onclick="checkPassword()">Enter</button>
+  <div id="pw-error"></div>
 </div>
 
-<div id="app">  
-<header>  
-  <h1>🫀 SIUH Cardiology Fellowship Hub</h1>  
-  <div class="sub">Staten Island University Hospital • Quick Reference</div>  
+<div id="app">
+<header>
+  <h1>🫀 SIUH Cardiology Fellowship Hub</h1>
+  <div class="sub">Staten Island University Hospital • Quick Reference</div>
 </header>
 
-<div class="tab-nav">  
-  <button class="tab-btn active" onclick="switchTab('home')">🏠 Home</button>  
-  <button class="tab-btn" onclick="switchTab('procedures')">🔧 Procedures</button>  
-  <button class="tab-btn" onclick="switchTab('rotations')">📋 Rotations</button>  
-  <button class="tab-btn" onclick="switchTab('phones')">📞 Phones</button>  
-  <button class="tab-btn" onclick="switchTab('quickref')">💡 Quick Ref</button>  
-  <button class="tab-btn" onclick="switchTab('resources')">📚 Resources</button>  
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('home')">🏠 Home</button>
+  <button class="tab-btn" onclick="switchTab('procedures')">🔧 Procedures</button>
+  <button class="tab-btn" onclick="switchTab('rotations')">📋 Rotations</button>
+  <button class="tab-btn" onclick="switchTab('phones')">📞 Phones</button>
+  <button class="tab-btn" onclick="switchTab('quickref')">💡 Quick Ref</button>
+  <button class="tab-btn" onclick="switchTab('resources')">📚 Resources</button>
 </div>
 
-<!-- HOME TAB -->  
-<div class="tab-content active" id="tab-home">  
-  <div class="card">  
-    <h2>⚡ Quick Access</h2>  
-    <div class="quick-grid">  
-      <div class="quick-card" onclick="switchTab('procedures');setTimeout(()=>toggleProc('swan'),100)"><div class="emoji">🦢</div><div class="label">Swan-Ganz</div></div>  
-      <div class="quick-card" onclick="switchTab('procedures');setTimeout(()=>toggleProc('tvp'),100)"><div class="emoji">⚡</div><div class="label">TVP</div></div>  
-      <div class="quick-card" onclick="switchTab('procedures');setTimeout(()=>toggleProc('iabp'),100)"><div class="emoji">🎈</div><div class="label">IABP Removal</div></div>  
-      <div class="quick-card" onclick="switchTab('procedures');setTimeout(()=>toggleProc('femsheath'),100)"><div class="emoji">🩸</div><div class="label">Fem Sheath</div></div>  
-      <div class="quick-card" onclick="switchTab('procedures');setTimeout(()=>toggleProc('radial'),100)"><div class="emoji">🔴</div><div class="label">Radial Band</div></div>  
-      <div class="quick-card" onclick="switchTab('phones')"><div class="emoji">📞</div><div class="label">Phone Numbers</div></div>  
-    </div>  
-  </div>  
-  <div class="card" style="text-align:center;padding:16px;">  
-    <p style="font-size:0.8em;color:var(--text-light);font-weight:500;">📱 <strong style="color:var(--text-mid);">Bookmark this page</strong> to your home screen for instant access</p>  
-  </div>  
+<!-- HOME TAB -->
+<div class="tab-content active" id="tab-home">
+  <div class="card">
+    <h2>⚡ Quick Access</h2>
+    <div class="quick-grid">
+      <div class="quick-card" onclick="openProcedure('swan')"><div class="emoji">🦢</div><div class="label">Swan-Ganz</div></div>
+      <div class="quick-card" onclick="openProcedure('tvp')"><div class="emoji">⚡</div><div class="label">TVP</div></div>
+      <div class="quick-card" onclick="openProcedure('iabp')"><div class="emoji">🎈</div><div class="label">IABP Removal</div></div>
+      <div class="quick-card" onclick="openProcedure('femsheath')"><div class="emoji">🩸</div><div class="label">Fem Sheath</div></div>
+      <div class="quick-card" onclick="openProcedure('radial')"><div class="emoji">🔴</div><div class="label">Radial Band</div></div>
+      <div class="quick-card" onclick="switchTab('phones')"><div class="emoji">📞</div><div class="label">Phone Numbers</div></div>
+    </div>
+  </div>
+  <div class="card" style="text-align:center;padding:16px;">
+    <p style="font-size:0.8em;color:var(--text-light);font-weight:500;">📱 <strong style="color:var(--text-mid);">Bookmark this page</strong> to your home screen for instant access</p>
+  </div>
 </div>
 
-<!-- PROCEDURES TAB -->  
+<!-- PROCEDURES TAB -->
 <div class="tab-content" id="tab-procedures">
 
-  <!-- SWAN-GANZ -->  
-  <div class="proc-item searchable" id="proc-swan" data-search="swan ganz catheter right heart pa mac introducer hemosphere edwards pulmonary artery wedge cardiac output">  
-    <div class="proc-header" onclick="toggleProc('swan')"><div class="proc-icon">🦢</div><div class="proc-title"><h3>Swan-Ganz Catheter Placement</h3><p>Edwards PA catheter via MAC 9Fr introducer</p></div><div class="proc-chevron">▼</div></div>  
-    <div class="proc-body">  
-      <div class="sub-tabs">  
-        <button class="sub-tab active" onclick="switchSub(this,'swan-steps')">📋 Steps</button>  
-        <button class="sub-tab" onclick="switchSub(this,'swan-supplies')">🧰 Supplies</button>  
-        <button class="sub-tab" onclick="switchSub(this,'swan-waveforms')">📈 Waveforms</button>  
-        <button class="sub-tab" onclick="switchSub(this,'swan-tips')">💡 Tips</button>  
-        <button class="sub-tab" onclick="switchSub(this,'swan-post')">✅ Post-Proc</button>  
+  <!-- SWAN-GANZ -->
+  <div class="proc-item searchable" id="proc-swan" data-search="swan ganz catheter right heart pa mac introducer hemosphere edwards pulmonary artery wedge cardiac output">
+    <div class="proc-header" onclick="toggleProc('swan')"><div class="proc-icon">🦢</div><div class="proc-title"><h3>Swan-Ganz Catheter Placement</h3><p>Edwards PA catheter via MAC 9Fr introducer</p></div><div class="proc-chevron">▼</div></div>
+    <div class="proc-body">
+      <div class="sub-tabs">
+        <button class="sub-tab active" onclick="switchSub(this,'swan-steps')">📋 Steps</button>
+        <button class="sub-tab" onclick="switchSub(this,'swan-supplies')">🧰 Supplies</button>
+        <button class="sub-tab" onclick="switchSub(this,'swan-waveforms')">📈 Waveforms</button>
+        <button class="sub-tab" onclick="switchSub(this,'swan-tips')">💡 Tips</button>
+        <button class="sub-tab" onclick="switchSub(this,'swan-post')">✅ Post-Proc</button>
       </div>
 
-      <div class="sub-panel active" id="swan-steps">  
-        <h4>Setup</h4>  
-        <ol class="step-list">  
-          <li><strong>Obtain consent.</strong>  
-            <div class="info-box" style="margin-top:8px;margin-bottom:0;">📋 Paper consent document — found in the CCU.</div>  
-          </li>  
-          <li><strong>Position:</strong> Supine, slight Trendelenburg, head turned left.</li>  
-          <li><strong>Place Zoll pads on patient</strong> and ensure telemetry functional.</li>  
-          <li><strong>Full sterile prep</strong> — cap, mask, gown, gloves, full-body drape. ChloraPrep the site and allow to dry.</li>  
-          <li><strong>Time out.</strong></li>  
-        </ol>  
-        <h4>Introducer Sheath Placement</h4>  
-        <ol class="step-list">  
-          <li><strong>US-guided R IJ access.</strong> Confirm compressibility, non-pulsatile. Aspirate venous blood to confirm.</li>  
-          <li><strong>Confirm venous return.</strong> Dark, non-pulsatile.</li>  
-          <li><strong>J-wire (0.035")</strong> — advance smoothly under ultrasound visualization. Confirm wire in vein. Watch for ectopy.</li>  
-          <li><strong>Nick skin.</strong> Advance dilator/sheath over wire. Never let go of wire.</li>  
-          <li><strong>Remove dilator + wire.</strong> Confirm venous blood. Aspirate and flush all ports.</li>  
-          <li><strong>Secure hubbed catheter with sutures.</strong></li>  
-        </ol>  
-        <h4>Swan Catheter Advancement</h4>  
-        <ol class="step-list">  
-          <li><strong>Prepare Swan-Ganz Catheter:</strong>  
-            <ul class="bullet-sub">  
-              <li>Inflate balloon with air → deflate to confirm function</li>  
-              <li>Flush all lumens</li>  
-              <li>Place sterile sheath ("Swandom") before advancing</li>  
-              <li>Attach 2 blue claves to extra ports</li>  
-            </ul>  
-          </li>  
-          <li><strong>Zero transducer.</strong>  
-            <div class="tip-box" style="margin-top:8px;margin-bottom:0;"><div class="tip-label">💡 Level</div>Ensure transducer is level with the phlebostatic axis (4th intercostal space, midaxillary line).</div>  
-          </li>  
-          <li><strong>Insert catheter DEFLATED to ~20 cm</strong> (should be near RA).</li>  
-          <li><strong>Inflate balloon</strong> with 1.5 mL of air. Advance with balloon inflated.</li>  
-          <li><strong>RV (~30-35 cm)</strong> — note RV waveform on monitor. <strong>Move quickly.</strong></li>  
-          <li><strong>PA (~40-45 cm)</strong> — diastolic step-up. Dicrotic notch.</li>  
-          <li><strong>Wedge (~45-55 cm)</strong> — PCWP tracing obtained. <strong>Record pressure and distance.</strong></li>  
-          <li><strong>Deflate balloon,</strong> observe PA waveform return, and withdraw 2–5 cm. <strong>Leave deflated in PA.</strong></li>  
-          <li><strong>Note depth. Secure. CXR. Document.</strong></li>  
-        </ol>  
-        <div class="danger-box"><div class="danger-label">🚨 Critical Reminders</div>Never withdraw catheter with balloon inflated. Never inject liquid into the balloon port.</div>  
+      <div class="sub-panel active" id="swan-steps">
+        <h4>Setup</h4>
+        <ol class="step-list">
+          <li><strong>Obtain consent.</strong>
+            <div class="info-box" style="margin-top:8px;margin-bottom:0;">📋 Paper consent document — found in the CCU.</div>
+          </li>
+          <li><strong>Position:</strong> Supine, slight Trendelenburg, head turned left.</li>
+          <li><strong>Place Zoll pads on patient</strong> and ensure telemetry functional.</li>
+          <li><strong>Full sterile prep</strong> — cap, mask, gown, gloves, full-body drape. ChloraPrep the site and allow to dry.</li>
+          <li><strong>Time out.</strong></li>
+        </ol>
+        <h4>Introducer Sheath Placement</h4>
+        <ol class="step-list">
+          <li><strong>US-guided R IJ access.</strong> Confirm compressibility, non-pulsatile. Aspirate venous blood to confirm.</li>
+          <li><strong>Confirm venous return.</strong> Dark, non-pulsatile.</li>
+          <li><strong>J-wire (0.035")</strong> — advance smoothly under ultrasound visualization. Confirm wire in vein. Watch for ectopy.</li>
+          <li><strong>Nick skin.</strong> Advance dilator/sheath over wire. Never let go of wire.</li>
+          <li><strong>Remove dilator + wire.</strong> Confirm venous blood. Aspirate and flush all ports.</li>
+          <li><strong>Secure hubbed catheter with sutures.</strong></li>
+        </ol>
+        <h4>Swan Catheter Advancement</h4>
+        <ol class="step-list">
+          <li><strong>Prepare Swan-Ganz Catheter:</strong>
+            <ul class="bullet-sub">
+              <li>Inflate balloon with air → deflate to confirm function</li>
+              <li>Flush all lumens</li>
+              <li>Place sterile sheath ("Swandom") before advancing</li>
+              <li>Attach 2 blue claves to extra ports</li>
+            </ul>
+          </li>
+          <li><strong>Zero transducer.</strong>
+            <div class="tip-box" style="margin-top:8px;margin-bottom:0;"><div class="tip-label">💡 Level</div>Ensure transducer is level with the phlebostatic axis (4th intercostal space, midaxillary line).</div>
+          </li>
+          <li><strong>Insert catheter DEFLATED to ~20 cm</strong> (should be near RA).</li>
+          <li><strong>Inflate balloon</strong> with 1.5 mL of air. Advance with balloon inflated.</li>
+          <li><strong>RV (~30-35 cm)</strong> — note RV waveform on monitor. <strong>Move quickly.</strong></li>
+          <li><strong>PA (~40-45 cm)</strong> — diastolic step-up. Dicrotic notch.</li>
+          <li><strong>Wedge (~45-55 cm)</strong> — PCWP tracing obtained. <strong>Record pressure and distance.</strong></li>
+          <li><strong>Deflate balloon,</strong> observe PA waveform return, and withdraw 2–5 cm. <strong>Leave deflated in PA.</strong></li>
+          <li><strong>Note depth. Secure. CXR. Document.</strong></li>
+        </ol>
+        <div class="danger-box"><div class="danger-label">🚨 Critical Reminders</div>Never withdraw catheter with balloon inflated. Never inject liquid into the balloon port.</div>
       </div>
 
-      <div class="sub-panel" id="swan-supplies">  
-        <table class="supply-table"><thead><tr><th>Item</th><th>Details</th></tr></thead>  
-          <tbody>  
-            <tr><td>MAC Introducer Kit</td><td>9 Fr (includes dilator, sheath, needle, wire, lidocaine, ChloraPrep)</td></tr>  
-            <tr><td>Edwards Swan-Ganz</td><td>7.5 Fr, 110 cm</td></tr>  
-            <tr><td>Hemosphere Monitor</td><td>If continuous SvO₂/CO</td></tr>  
-            <tr><td>US + sterile cover</td><td>Linear probe</td></tr>  
-            <tr><td>Full sterile PPE</td><td>Cap, mask, gown, gloves, drape</td></tr>  
-            <tr><td>Suture</td><td>3-0 silk</td></tr>  
-            <tr><td>Zoll pads</td><td>Placed on patient before starting</td></tr>  
-          </tbody>  
-        </table>  
+      <div class="sub-panel" id="swan-supplies">
+        <table class="supply-table"><thead><tr><th>Item</th><th>Details</th></tr></thead>
+          <tbody>
+            <tr><td>MAC Introducer Kit</td><td>9 Fr (includes dilator, sheath, needle, wire, lidocaine, ChloraPrep)</td></tr>
+            <tr><td>Edwards Swan-Ganz</td><td>7.5 Fr, 110 cm</td></tr>
+            <tr><td>Hemosphere Monitor</td><td>If continuous SvO₂/CO</td></tr>
+            <tr><td>US + sterile cover</td><td>Linear probe</td></tr>
+            <tr><td>Full sterile PPE</td><td>Cap, mask, gown, gloves, drape</td></tr>
+            <tr><td>Suture</td><td>3-0 silk</td></tr>
+            <tr><td>Zoll pads</td><td>Placed on patient before starting</td></tr>
+          </tbody>
+        </table>
       </div>
 
-      <div class="sub-panel" id="swan-waveforms">  
-        <div class="waveform-diagram">  
-          <svg viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">  
-            <defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/></pattern></defs>  
-            <rect width="800" height="280" fill="none"/><rect width="800" height="280" fill="url(#grid)"/>  
-            <text x="12" y="42" fill="rgba(255,255,255,0.35)" font-size="9" font-family="Inter,sans-serif">30</text>  
-            <text x="12" y="87" fill="rgba(255,255,255,0.35)" font-size="9" font-family="Inter,sans-serif">20</text>  
-            <text x="12" y="137" fill="rgba(255,255,255,0.35)" font-size="9" font-family="Inter,sans-serif">10</text>  
-            <text x="16" y="187" fill="rgba(255,255,255,0.35)" font-size="9" font-family="Inter,sans-serif">0</text>  
-            <text x="6" y="205" fill="rgba(255,255,255,0.25)" font-size="8" font-family="Inter,sans-serif">mmHg</text>  
-            <line x1="35" y1="40" x2="780" y2="40" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>  
-            <line x1="35" y1="85" x2="780" y2="85" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>  
-            <line x1="35" y1="135" x2="780" y2="135" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>  
-            <line x1="35" y1="185" x2="780" y2="185" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>  
-            <line x1="220" y1="25" x2="220" y2="210" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="4,4"/>  
-            <line x1="420" y1="25" x2="420" y2="210" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="4,4"/>  
-            <line x1="620" y1="25" x2="620" y2="210" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="4,4"/>  
-            <polyline points="40,175 50,173 55,170 60,165 64,168 68,175 72,177 76,175 80,173 84,170 88,164 92,167 96,175 100,177 104,175 108,173 112,170 116,165 120,168 124,175 128,177 132,175 136,173 140,170 144,164 148,167 152,175 156,177 160,175 164,173 168,170 172,165 176,168 180,175 184,177 188,175 192,173 196,170 200,164 204,167 208,175 212,177 216,175" fill="none" stroke="#60a5fa" stroke-width="2.5"/>  
-            <polyline points="224,175 228,175 230,150 232,100 234,48 236,44 238,47 240,85 242,135 244,168 246,178 248,180 252,182 256,180 260,175 262,150 264,100 266,48 268,44 270,47 272,85 274,135 276,168 278,178 280,180 284,182 288,180 292,175 294,150 296,100 298,48 300,44 302,47 304,85 306,135 308,168 310,178 312,180 316,182 320,180 324,175 326,150 328,100 330,48 332,44 334,47 336,85 338,135 340,168 342,178 344,180 348,182 352,180 356,175 358,150 360,100 362,48 364,44 366,47 368,85 370,135 372,168 374,178 376,180 380,182 384,180 388,175 390,150 392,100 394,48 396,44 398,47 400,85 402,135 404,168 406,178 408,180 412,182 416,180" fill="none" stroke="#34d399" stroke-width="2.5"/>  
-            <polyline points="424,170 426,158 428,130 430,95 432,55 434,44 436,48 438,65 440,78 441,75 442,82 444,115 446,135 448,140 450,143 454,145 456,143 458,135 460,115 462,95 464,55 466,44 468,48 470,65 472,78 473,75 474,82 476,115 478,135 480,140 482,143 486,145 488,143 490,135 492,115 494,95 496,55 498,44 500,48 502,65 504,78 505,75 506,82 508,115 510,135 512,140 514,143 518,145 520,143 522,135 524,115 526,95 528,55 530,44 532,48 534,65 536,78 537,75 538,82 540,115 542,135 544,140 546,143 550,145 552,143 554,135 556,115 558,95 560,55 562,44 564,48 566,65 568,78 569,75 570,82 572,115 574,135 576,140 578,143 582,145 584,143 586,135 588,115 590,95 592,55 594,44 596,48 598,65 600,78 601,75 602,82 604,115 606,135 608,140 610,143 614,145 616,143" fill="none" stroke="#fbbf24" stroke-width="2.5"/>  
-            <polyline points="624,158 628,156 632,152 636,148 640,150 644,158 648,160 652,158 656,156 660,152 664,146 668,149 672,158 676,160 680,158 684,156 688,150 692,146 696,149 700,158 704,160 708,158 712,156 716,152 720,146 724,149 728,158 732,160 736,158 740,156 744,150 748,146 752,149 756,158 760,160 764,158 768,156 772,152 776,148 780,150" fill="none" stroke="#f87171" stroke-width="2.5"/>  
-            <rect x="90" y="225" width="60" height="22" rx="6" fill="rgba(96,165,250,0.15)" stroke="#60a5fa" stroke-width="1"/><text x="120" y="240" fill="#60a5fa" font-size="11" font-weight="bold" text-anchor="middle" font-family="Inter,sans-serif">RA</text>  
-            <rect x="290" y="225" width="60" height="22" rx="6" fill="rgba(52,211,153,0.15)" stroke="#34d399" stroke-width="1"/><text x="320" y="240" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle" font-family="Inter,sans-serif">RV</text>  
-            <rect x="490" y="225" width="60" height="22" rx="6" fill="rgba(251,191,36,0.15)" stroke="#fbbf24" stroke-width="1"/><text x="520" y="240" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle" font-family="Inter,sans-serif">PA</text>  
-            <rect x="670" y="225" width="70" height="22" rx="6" fill="rgba(248,113,113,0.15)" stroke="#f87171" stroke-width="1"/><text x="705" y="240" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle" font-family="Inter,sans-serif">PCWP</text>  
-            <text x="120" y="260" fill="rgba(255,255,255,0.5)" font-size="9" text-anchor="middle" font-family="Inter,sans-serif">0–5</text>  
-            <text x="320" y="260" fill="rgba(255,255,255,0.5)" font-size="9" text-anchor="middle" font-family="Inter,sans-serif">15–30/0–8</text>  
-            <text x="520" y="260" fill="rgba(255,255,255,0.5)" font-size="9" text-anchor="middle" font-family="Inter,sans-serif">15–30/4–12</text>  
-            <text x="705" y="260" fill="rgba(255,255,255,0.5)" font-size="9" text-anchor="middle" font-family="Inter,sans-serif">4–12</text>  
-            <text x="120" y="275" fill="rgba(255,255,255,0.3)" font-size="8" text-anchor="middle" font-family="Inter,sans-serif">~20 cm</text>  
-            <text x="320" y="275" fill="rgba(255,255,255,0.3)" font-size="8" text-anchor="middle" font-family="Inter,sans-serif">~30 cm</text>  
-            <text x="520" y="275" fill="rgba(255,255,255,0.3)" font-size="8" text-anchor="middle" font-family="Inter,sans-serif">~40 cm</text>  
-            <text x="705" y="275" fill="rgba(255,255,255,0.3)" font-size="8" text-anchor="middle" font-family="Inter,sans-serif">~50 cm</text>  
-          </svg>  
-        </div>  
-        <table class="supply-table"><thead><tr><th>Chamber</th><th>Pressures</th><th>Key</th></tr></thead>  
-          <tbody>  
-            <tr><td><strong>RA</strong></td><td>Mean 0-5</td><td>a/v waves</td></tr>  
-            <tr><td><strong>RV</strong></td><td>15-30 / 0-8</td><td>Move fast through here</td></tr>  
-            <tr><td><strong>PA</strong></td><td>15-30 / 4-12</td><td>Diastolic step-up + dicrotic notch</td></tr>  
-            <tr><td><strong>PCWP</strong></td><td>Mean 4-12</td><td>Dampened tracing</td></tr>  
-          </tbody>  
-        </table>  
+      <div class="sub-panel" id="swan-waveforms">
+        <div class="waveform-diagram">
+          <svg viewBox="0 0 800 280" xmlns="http://www.w3.org/2000/svg">
+            <defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/></pattern></defs>
+            <rect width="800" height="280" fill="none"/><rect width="800" height="280" fill="url(#grid)"/>
+            <text x="12" y="42" fill="rgba(255,255,255,0.35)" font-size="9" font-family="Inter,sans-serif">30</text>
+            <text x="12" y="87" fill="rgba(255,255,255,0.35)" font-size="9" font-family="Inter,sans-serif">20</text>
+            <text x="12" y="137" fill="rgba(255,255,255,0.35)" font-size="9" font-family="Inter,sans-serif">10</text>
+            <text x="16" y="187" fill="rgba(255,255,255,0.35)" font-size="9" font-family="Inter,sans-serif">0</text>
+            <text x="6" y="205" fill="rgba(255,255,255,0.25)" font-size="8" font-family="Inter,sans-serif">mmHg</text>
+            <line x1="35" y1="40" x2="780" y2="40" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+            <line x1="35" y1="85" x2="780" y2="85" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+            <line x1="35" y1="135" x2="780" y2="135" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+            <line x1="35" y1="185" x2="780" y2="185" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
+            <line x1="220" y1="25" x2="220" y2="210" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="420" y1="25" x2="420" y2="210" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="4,4"/>
+            <line x1="620" y1="25" x2="620" y2="210" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="4,4"/>
+            <polyline points="40,175 50,173 55,170 60,165 64,168 68,175 72,177 76,175 80,173 84,170 88,164 92,167 96,175 100,177 104,175 108,173 112,170 116,165 120,168 124,175 128,177 132,175 136,173 140,170 144,164 148,167 152,175 156,177 160,175 164,173 168,170 172,165 176,168 180,175 184,177 188,175 192,173 196,170 200,164 204,167 208,175 212,177 216,175" fill="none" stroke="#60a5fa" stroke-width="2.5"/>
+            <polyline points="224,175 228,175 230,150 232,100 234,48 236,44 238,47 240,85 242,135 244,168 246,178 248,180 252,182 256,180 260,175 262,150 264,100 266,48 268,44 270,47 272,85 274,135 276,168 278,178 280,180 284,182 288,180 292,175 294,150 296,100 298,48 300,44 302,47 304,85 306,135 308,168 310,178 312,180 316,182 320,180 324,175 326,150 328,100 330,48 332,44 334,47 336,85 338,135 340,168 342,178 344,180 348,182 352,180 356,175 358,150 360,100 362,48 364,44 366,47 368,85 370,135 372,168 374,178 376,180 380,182 384,180 388,175 390,150 392,100 394,48 396,44 398,47 400,85 402,135 404,168 406,178 408,180 412,182 416,180" fill="none" stroke="#34d399" stroke-width="2.5"/>
+            <polyline points="424,170 426,158 428,130 430,95 432,55 434,44 436,48 438,65 440,78 441,75 442,82 444,115 446,135 448,140 450,143 454,145 456,143 458,135 460,115 462,95 464,55 466,44 468,48 470,65 472,78 473,75 474,82 476,115 478,135 480,140 482,143 486,145 488,143 490,135 492,115 494,95 496,55 498,44 500,48 502,65 504,78 505,75 506,82 508,115 510,135 512,140 514,143 518,145 520,143 522,135 524,115 526,95 528,55 530,44 532,48 534,65 536,78 537,75 538,82 540,115 542,135 544,140 546,143 550,145 552,143 554,135 556,115 558,95 560,55 562,44 564,48 566,65 568,78 569,75 570,82 572,115 574,135 576,140 578,143 582,145 584,143 586,135 588,115 590,95 592,55 594,44 596,48 598,65 600,78 601,75 602,82 604,115 606,135 608,140 610,143 614,145 616,143" fill="none" stroke="#fbbf24" stroke-width="2.5"/>
+            <polyline points="624,158 628,156 632,152 636,148 640,150 644,158 648,160 652,158 656,156 660,152 664,146 668,149 672,158 676,160 680,158 684,156 688,150 692,146 696,149 700,158 704,160 708,158 712,156 716,152 720,146 724,149 728,158 732,160 736,158 740,156 744,150 748,146 752,149 756,158 760,160 764,158 768,156 772,152 776,148 780,150" fill="none" stroke="#f87171" stroke-width="2.5"/>
+            <rect x="90" y="225" width="60" height="22" rx="6" fill="rgba(96,165,250,0.15)" stroke="#60a5fa" stroke-width="1"/><text x="120" y="240" fill="#60a5fa" font-size="11" font-weight="bold" text-anchor="middle" font-family="Inter,sans-serif">RA</text>
+            <rect x="290" y="225" width="60" height="22" rx="6" fill="rgba(52,211,153,0.15)" stroke="#34d399" stroke-width="1"/><text x="320" y="240" fill="#34d399" font-size="11" font-weight="bold" text-anchor="middle" font-family="Inter,sans-serif">RV</text>
+            <rect x="490" y="225" width="60" height="22" rx="6" fill="rgba(251,191,36,0.15)" stroke="#fbbf24" stroke-width="1"/><text x="520" y="240" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle" font-family="Inter,sans-serif">PA</text>
+            <rect x="670" y="225" width="70" height="22" rx="6" fill="rgba(248,113,113,0.15)" stroke="#f87171" stroke-width="1"/><text x="705" y="240" fill="#f87171" font-size="11" font-weight="bold" text-anchor="middle" font-family="Inter,sans-serif">PCWP</text>
+            <text x="120" y="260" fill="rgba(255,255,255,0.5)" font-size="9" text-anchor="middle" font-family="Inter,sans-serif">2–8</text>
+            <text x="320" y="260" fill="rgba(255,255,255,0.5)" font-size="9" text-anchor="middle" font-family="Inter,sans-serif">15–30/0–8</text>
+            <text x="520" y="260" fill="rgba(255,255,255,0.5)" font-size="9" text-anchor="middle" font-family="Inter,sans-serif">15–30/6–16</text>
+            <text x="705" y="260" fill="rgba(255,255,255,0.5)" font-size="9" text-anchor="middle" font-family="Inter,sans-serif">6–15</text>
+            <text x="120" y="275" fill="rgba(255,255,255,0.3)" font-size="8" text-anchor="middle" font-family="Inter,sans-serif">~20 cm</text>
+            <text x="320" y="275" fill="rgba(255,255,255,0.3)" font-size="8" text-anchor="middle" font-family="Inter,sans-serif">~30 cm</text>
+            <text x="520" y="275" fill="rgba(255,255,255,0.3)" font-size="8" text-anchor="middle" font-family="Inter,sans-serif">~40 cm</text>
+            <text x="705" y="275" fill="rgba(255,255,255,0.3)" font-size="8" text-anchor="middle" font-family="Inter,sans-serif">~50 cm</text>
+          </svg>
+        </div>
+        <table class="supply-table"><thead><tr><th>Chamber</th><th>Pressures</th><th>Key</th></tr></thead>
+          <tbody>
+            <tr><td><strong>RA</strong></td><td>Mean 2-8</td><td>a/v waves</td></tr>
+            <tr><td><strong>RV</strong></td><td>15-30 / 0-8</td><td>Move fast through here</td></tr>
+            <tr><td><strong>PA</strong></td><td>15-30 / 6-16</td><td>Diastolic step-up + dicrotic notch</td></tr>
+            <tr><td><strong>PCWP</strong></td><td>Mean 6-15</td><td>Dampened tracing</td></tr>
+          </tbody>
+        </table>
       </div>
 
-      <div class="sub-panel" id="swan-tips">  
-        <div class="tip-box"><div class="tip-label">💡 Can't advance past 30?</div>Coiling in RA. Deflate, pull back to 20 cm, re-inflate, and re-attempt.</div>  
-        <div class="tip-box">  
-          <div class="tip-label">💡 RV Ectopy</div>  
-          <ul class="bullet-sub" style="margin-top:4px;">  
-            <li>Advance briskly through the RV — do not linger</li>  
-            <li><strong>VT/VF →</strong> immediately deflate balloon and withdraw catheter</li>  
-          </ul>  
-        </div>  
-        <div class="warn-box"><div class="warn-label">⚠️ Overwedging</div>Balloon >15 sec → PA rupture. Fatal.</div>  
-        <div class="danger-box"><div class="danger-label">🚨 PA Rupture</div>Hemoptysis → deflate balloon, <strong>side of rupture DOWN</strong>, stop anticoagulation, <strong>interventional radiology STAT consult</strong>, +/- CT surgery.</div>  
-        <div class="tip-box">  
-          <div class="tip-label">💡 Clotted Swan</div>  
-          <strong>Step 1:</strong> Heparinized saline flush — from pharmacy, 100 U/mL for 3 mL flush.
-
-          <strong>Step 2 (if Step 1 fails):</strong> CathFlo 2 mg/mL for 2 mL flush.  
-          <ul class="bullet-sub" style="margin-top:6px;">  
-            <li>Constitute solution</li>  
-            <li>Disconnect all catheters (ports)</li>  
-            <li>Flush into the PA distal catheter</li>  
-            <li>Dwell for 1–2 hours</li>  
-            <li>Aspirate as much as possible</li>  
-            <li>"Power" flush with 3 saline flushes</li>  
-            <li>Reconnect all</li>  
-          </ul>  
-        </div>  
+      <div class="sub-panel" id="swan-tips">
+        <div class="tip-box"><div class="tip-label">💡 Can't advance past 30?</div>Coiling in RA. Deflate, pull back to 20 cm, re-inflate, and re-attempt.</div>
+        <div class="tip-box">
+          <div class="tip-label">💡 RV Ectopy</div>
+          <ul class="bullet-sub" style="margin-top:4px;">
+            <li>Advance briskly through the RV — do not linger</li>
+            <li><strong>VT/VF →</strong> immediately deflate balloon and withdraw catheter</li>
+          </ul>
+        </div>
+        <div class="warn-box"><div class="warn-label">⚠️ Overwedging</div>Balloon >15 sec → PA rupture. Fatal.</div>
+        <div class="danger-box"><div class="danger-label">🚨 PA Rupture</div>Hemoptysis → deflate balloon, <strong>side of rupture DOWN</strong>, stop anticoagulation, <strong>interventional radiology STAT consult</strong>, +/- CT surgery.</div>
+        <div class="tip-box">
+          <div class="tip-label">💡 Clotted Swan</div>
+          <strong>Step 1:</strong> Heparinized saline flush — from pharmacy, 100 U/mL for 3 mL flush.<br><br>
+          <strong>Step 2 (if Step 1 fails):</strong> CathFlo 2 mg/mL for 2 mL flush.
+          <ul class="bullet-sub" style="margin-top:6px;">
+            <li>Constitute solution</li>
+            <li>Disconnect all catheters (ports)</li>
+            <li>Flush into the PA distal catheter</li>
+            <li>Dwell for 1–2 hours</li>
+            <li>Aspirate as much as possible</li>
+            <li>"Power" flush with 3 saline flushes</li>
+            <li>Reconnect all</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="sub-panel" id="swan-post">  
-        <ul class="checklist"><li>CXR — Zone 3</li><li>Zero transducer each shift</li><li>Waveform check each shift</li><li>Never flush while wedged</li><li>Daily reassess need</li></ul>  
-        <h4>Key Calculations</h4>  
-        <table class="supply-table"><thead><tr><th>Calc</th><th>Formula</th><th>Normal</th></tr></thead>  
-          <tbody><tr><td>CI</td><td>CO / BSA</td><td>2.5-4.0</td></tr><tr><td>SVR</td><td>80×(MAP-CVP)/CO</td><td>800-1200</td></tr><tr><td>PVR</td><td>80×(mPAP-PCWP)/CO</td><td><250</td></tr><tr><td>CPO</td><td>MAP×CO/451</td><td>>0.6W</td></tr></tbody>  
-        </table>  
-      </div>  
-    </div>  
+      <div class="sub-panel" id="swan-post">
+        <ul class="checklist"><li>CXR — Zone 3</li><li>Zero transducer each shift</li><li>Waveform check each shift</li><li>Never flush while wedged</li><li>Daily reassess need</li></ul>
+        <h4>Key Calculations</h4>
+        <table class="supply-table"><thead><tr><th>Calc</th><th>Formula</th><th>Normal</th></tr></thead>
+          <tbody><tr><td>CI</td><td>CO / BSA</td><td>2.5-4.0</td></tr><tr><td>SVR</td><td>80×(MAP-CVP)/CO</td><td>800-1200</td></tr><tr><td>PVR</td><td>80×(mPAP-PCWP)/CO</td><td><250</td></tr><tr><td>CPO</td><td>MAP×CO/451</td><td>>0.6W</td></tr></tbody>
+        </table>
+      </div>
+    </div>
   </div>
 
-  <!-- TVP -->  
-  <div class="proc-item searchable" id="proc-tvp" data-search="transvenous pacemaker tvp temporary pacer bradycardia heart block">  
-    <div class="proc-header" onclick="toggleProc('tvp')"><div class="proc-icon">⚡</div><div class="proc-title"><h3>Transvenous Pacemaker (TVP)</h3><p>Emergency temporary pacing • R IJ or femoral</p></div><div class="proc-chevron">▼</div></div>  
-    <div class="proc-body">  
-      <div class="warn-box"><div class="warn-label">⚠️ Bridge</div>If unstable → transcutaneous pads while setting up.</div>  
-      <ol class="step-list">  
-        <li><strong>Venous introducer (≥6 Fr)</strong> — R IJ preferred. US-guided, sterile.</li>  
-        <li><strong>Connect wire to generator BEFORE inserting.</strong> VVI, rate ~80, output at least 10 mA.</li>  
-        <li><strong>Advance catheter through the sheath.</strong> Once passed 20 cm, inflate balloon and advance.</li>  
-        <li><strong>RV capture (~35-40 cm)</strong> — spike → wide QRS, LBBB.</li>  
-        <li><strong>Find threshold</strong> — deflate balloon. Slowly decrease output until capture is lost (= threshold). Should be <1-2 mA.</li>  
-        <li><strong>Output at 2-3× threshold</strong> (minimum 5 mA).</li>  
-        <li><strong>Check sensitivity.</strong> Half sensing threshold.</li>  
-        <li><strong>Secure. CXR.</strong> Document threshold, rate, and output settings.</li>  
-      </ol>  
-      <div class="danger-box"><div class="danger-label">🚨 Loss of Capture?</div>↑ output → CXR → reposition. Effusion/diaphragmatic pacing → perforation → echo.</div>  
-    </div>  
+  <!-- TVP -->
+  <div class="proc-item searchable" id="proc-tvp" data-search="transvenous pacemaker tvp temporary pacer bradycardia heart block">
+    <div class="proc-header" onclick="toggleProc('tvp')"><div class="proc-icon">⚡</div><div class="proc-title"><h3>Transvenous Pacemaker (TVP)</h3><p>Emergency temporary pacing • R IJ or femoral</p></div><div class="proc-chevron">▼</div></div>
+    <div class="proc-body">
+      <div class="warn-box"><div class="warn-label">⚠️ Bridge</div>If unstable → transcutaneous pads while setting up.</div>
+      <ol class="step-list">
+        <li><strong>Venous introducer (≥6 Fr)</strong> — R IJ preferred. US-guided, sterile.</li>
+        <li><strong>Connect wire to generator BEFORE inserting.</strong> VVI, rate ~80, output at least 10 mA.</li>
+        <li><strong>Advance catheter through the sheath.</strong> Once passed 20 cm, inflate balloon and advance.</li>
+        <li><strong>RV capture (~35-40 cm)</strong> — spike → wide QRS, LBBB.</li>
+        <li><strong>Find threshold</strong> — deflate balloon. Slowly decrease output until capture is lost (= threshold). Should be <1-2 mA.</li>
+        <li><strong>Output at 2-3× threshold</strong> (minimum 5 mA).</li>
+        <li><strong>Check sensitivity.</strong> Half sensing threshold.</li>
+        <li><strong>Secure. CXR.</strong> Document threshold, rate, and output settings.</li>
+      </ol>
+      <div class="danger-box"><div class="danger-label">🚨 Loss of Capture?</div>↑ output → CXR → reposition. Effusion/diaphragmatic pacing → perforation → echo.</div>
+    </div>
   </div>
 
-  <!-- IABP -->  
-  <div class="proc-item searchable" id="proc-iabp" data-search="iabp intra-aortic balloon pump removal bedside">  
-    <div class="proc-header" onclick="toggleProc('iabp')"><div class="proc-icon">🎈</div><div class="proc-title"><h3>IABP Removal at Bedside</h3><p>Femoral • ACT ≤ 150</p></div><div class="proc-chevron">▼</div></div>  
-    <div class="proc-body">  
-      <h4>Before</h4>  
-      <ol class="step-list">  
-        <li><strong>Confirm with attending.</strong></li>  
-        <li><strong>Wean</strong> per attending (1:1 → 1:2 → 1:3 as tolerated per hemodynamics).</li>  
-        <li><strong>ACT ≤ 150.</strong> Hold heparin ~2-4 hrs. Use cath lab ACT machine if CCU machine is down.</li>  
-        <li><strong>Premedicate patient</strong> with pain medications if no contraindication. Ensure atropine, pressor, and IV fluids are at bedside/available.</li>  
-      </ol>  
-      <h4>Removal</h4>  
-      <ol class="step-list">  
-        <li><strong>Obtain sterile gloves, gown, and mask with face-shield.</strong> Coordinate with other available fellows if possible.</li>  
-        <li><strong>Remove dressing and cut sutures.</strong></li>  
-        <li><strong>Turn IABP off.</strong> Press "Inflate/Deflate" to ensure balloon is fully deflated.</li>  
-        <li><strong>Withdraw slowly.</strong> When initial resistance is felt, <strong>pull both sheath and balloon pump together.</strong> Don't re-advance.</li>  
-        <li><strong>Allow brief bleeding</strong> to flush the site → <strong>firm manual pressure</strong> 1-2 cm above skin puncture.</li>  
-        <li><strong>Hold pressure: 5–6 minutes per Fr.</strong></li>  
-        <li><strong>Dressing. Bed rest 4-6 hrs.</strong></li>  
-      </ol>  
-      <div class="tip-box">  
-        <div class="tip-label">💡 Holding Pressure Protocol</div>  
-        <strong>First 10–15 minutes:</strong> Occlusive, firm pressure.
-
-        <strong>Thereafter:</strong> Firm pressure — refer to pulse oximetry waveform on the ipsilateral extremity to guide.  
-      </div>  
-      <div class="danger-box"><div class="danger-label">🚨 Can't withdraw?</div>STOP. Notify CCU attending and interventionalist.</div>  
-      <div class="warn-box"><div class="warn-label">⚠️ Inspect catheter</div>Fragment missing → call attending. Check distal pulses (DP/PT) before and after removal.</div>  
-    </div>  
+  <!-- IABP -->
+  <div class="proc-item searchable" id="proc-iabp" data-search="iabp intra-aortic balloon pump removal bedside">
+    <div class="proc-header" onclick="toggleProc('iabp')"><div class="proc-icon">🎈</div><div class="proc-title"><h3>IABP Removal at Bedside</h3><p>Femoral • ACT ≤ 150</p></div><div class="proc-chevron">▼</div></div>
+    <div class="proc-body">
+      <h4>Before</h4>
+      <ol class="step-list">
+        <li><strong>Confirm with attending.</strong></li>
+        <li><strong>Wean</strong> per attending (1:1 → 1:2 → 1:3 as tolerated per hemodynamics).</li>
+        <li><strong>ACT ≤ 150.</strong> Hold heparin ~2-4 hrs. Use cath lab ACT machine if CCU machine is down.</li>
+        <li><strong>Premedicate patient</strong> with pain medications if no contraindication. Ensure atropine, pressor, and IV fluids are at bedside/available.</li>
+      </ol>
+      <h4>Removal</h4>
+      <ol class="step-list">
+        <li><strong>Obtain sterile gloves, gown, and mask with face-shield.</strong> Coordinate with other available fellows if possible.</li>
+        <li><strong>Remove dressing and cut sutures.</strong></li>
+        <li><strong>Turn IABP off.</strong> Press "Inflate/Deflate" to ensure balloon is fully deflated.</li>
+        <li><strong>Withdraw slowly.</strong> When initial resistance is felt, <strong>pull both sheath and balloon pump together.</strong> Don't re-advance.</li>
+        <li><strong>Allow brief bleeding</strong> to flush the site → <strong>firm manual pressure</strong> 1-2 cm above skin puncture.</li>
+        <li><strong>Hold pressure: 5–6 minutes per Fr.</strong></li>
+        <li><strong>Dressing. Bed rest 4-6 hrs.</strong></li>
+      </ol>
+      <div class="tip-box">
+        <div class="tip-label">💡 Holding Pressure Protocol</div>
+        <strong>First 10–15 minutes:</strong> Occlusive, firm pressure.<br>
+        <strong>Thereafter:</strong> Firm pressure — refer to pulse oximetry waveform on the ipsilateral extremity to guide.
+      </div>
+      <div class="danger-box"><div class="danger-label">🚨 Can't withdraw?</div>STOP. Notify CCU attending and interventionalist.</div>
+      <div class="warn-box"><div class="warn-label">⚠️ Inspect catheter</div>Fragment missing → call attending. Check distal pulses (DP/PT) before and after removal.</div>
+    </div>
   </div>
 
-  <!-- FEMORAL SHEATH -->  
-  <div class="proc-item searchable" id="proc-femsheath" data-search="femoral sheath pull arterial removal hemostasis manual pressure act groin vasovagal atropine">  
-    <div class="proc-header" onclick="toggleProc('femsheath')"><div class="proc-icon">🩸</div><div class="proc-title"><h3>Femoral Arterial Sheath Pull</h3><p>ACT ≤ 150 • 3-5 min/Fr • Pulse ox on toe</p></div><div class="proc-chevron">▼</div></div>  
-    <div class="proc-body">  
-      <div class="sub-tabs">  
-        <button class="sub-tab active" onclick="switchSub(this,'fem-do')">📋 How To</button>  
-        <button class="sub-tab" onclick="switchSub(this,'fem-post')">✅ Post-Pull</button>  
-      </div>  
-      <div class="sub-panel active" id="fem-do">  
-        <h4>Before</h4>  
-        <ul class="checklist">  
-          <li><strong>ACT ≤ 150</strong></li>  
-          <li><strong>Atropine 1 mg IV + 1L NS</strong> at bedside</li>  
-          <li>Baseline vitals, pulses, inspect groin/abdomen/genitalia</li>  
-          <li><strong>Pulse ox on ipsilateral toe</strong></li>  
-          <li>Auto BP q5 min</li>  
-          <li><strong>HOB ≤ 12 in. Flat if on GP IIb/IIIa.</strong></li>  
-        </ul>  
-        <h4>Pull</h4>  
-        <ol class="step-list">  
-          <li><strong>Sterile gloves. Cut sutures.</strong></li>  
-          <li><strong>Palpate femoral pulse above sheath.</strong></li>  
-          <li><strong>Withdraw slowly.</strong> Pressure 2-3 fingers <strong>slightly proximal/medial</strong> to arteriotomy.</li>  
-          <li><strong>Inspect catheter.</strong> Intact? Clots?</li>  
-        </ol>  
-        <h4>Hold Times</h4>  
-        <table class="supply-table"><thead><tr><th>Rule</th><th>Details</th></tr></thead>  
-          <tbody>  
-            <tr><td><strong>General</strong></td><td><strong>3-5 min per French</strong></td></tr>  
-            <tr><td><strong>First 10 min</strong></td><td>Full occlusive — obliterate distal pulse</td></tr>  
-            <tr><td><strong>After 10 min</strong></td><td>Slowly release</td></tr>  
-            <tr><td><strong>Diagnostic</strong></td><td>Min 15 min. GP IIb/IIIa → 30 min.</td></tr>  
-            <tr><td><strong>Interventional</strong></td><td>Min 30 min</td></tr>  
-          </tbody>  
-        </table>  
-        <div class="tip-box"><div class="tip-label">💡 Get help</div>Complex/fatigued → get another fellow.</div>  
-        <p style="font-size:0.83em;margin-top:10px;color:var(--text-mid);">After hemostasis: Document <strong>hematoma in cm</strong>. If concern for hematoma, continue holding manual pressure. Demarcate and document size. Notify interventional fellow and interventionalist who performed the procedure.</p>  
-      </div>  
-      <div class="sub-panel" id="fem-post">  
-        <table class="supply-table"><thead><tr><th>Sheath</th><th>Rest</th></tr></thead><tbody><tr><td>6 Fr</td><td><strong>6 hrs</strong></td></tr><tr><td>7 Fr</td><td><strong>7 hrs</strong></td></tr></tbody></table>  
-        <h4>VS by Disposition</h4>  
-        <table class="supply-table"><thead><tr><th>To</th><th>Schedule</th></tr></thead>  
-          <tbody>  
-            <tr><td><strong>CCU</strong></td><td>q10×4 → q10 til Aldrete ≥8 → q30×2 → q1h</td></tr>  
-            <tr><td><strong>Recovery</strong></td><td>q15×4 → q30×2 → q1h×2 → protocol</td></tr>  
-            <tr><td><strong>Floor</strong></td><td>Continue from cath RN → q30×2 → q1h×2</td></tr>  
-          </tbody>  
-        </table>  
-        <div class="warn-box"><div class="warn-label">⚠️ Vasovagal</div>Atropine 1 mg IV + NS. Trendelenburg.</div>  
-        <div class="danger-box"><div class="danger-label">🚨 RP Bleed</div>Tachy + hypotension + back pain + no hematoma → STAT CT abd/pelvis.</div>  
-      </div>  
-    </div>  
+  <!-- FEMORAL SHEATH -->
+  <div class="proc-item searchable" id="proc-femsheath" data-search="femoral sheath pull arterial removal hemostasis manual pressure act groin vasovagal atropine">
+    <div class="proc-header" onclick="toggleProc('femsheath')"><div class="proc-icon">🩸</div><div class="proc-title"><h3>Femoral Arterial Sheath Pull</h3><p>ACT ≤ 150 • 3-5 min/Fr • Pulse ox on toe</p></div><div class="proc-chevron">▼</div></div>
+    <div class="proc-body">
+      <div class="sub-tabs">
+        <button class="sub-tab active" onclick="switchSub(this,'fem-do')">📋 How To</button>
+        <button class="sub-tab" onclick="switchSub(this,'fem-post')">✅ Post-Pull</button>
+      </div>
+      <div class="sub-panel active" id="fem-do">
+        <h4>Before</h4>
+        <ul class="checklist">
+          <li><strong>ACT ≤ 150</strong></li>
+          <li><strong>Atropine 1 mg IV + 1L NS</strong> at bedside</li>
+          <li>Baseline vitals, pulses, inspect groin/abdomen/genitalia</li>
+          <li><strong>Pulse ox on ipsilateral toe</strong></li>
+          <li>Auto BP q5 min</li>
+          <li><strong>HOB ≤ 12 in. Flat if on GP IIb/IIIa.</strong></li>
+        </ul>
+        <h4>Pull</h4>
+        <ol class="step-list">
+          <li><strong>Sterile gloves. Cut sutures.</strong></li>
+          <li><strong>Palpate femoral pulse above sheath.</strong></li>
+          <li><strong>Withdraw slowly.</strong> Pressure 2-3 fingers <strong>slightly proximal/medial</strong> to arteriotomy.</li>
+          <li><strong>Inspect catheter.</strong> Intact? Clots?</li>
+        </ol>
+        <h4>Hold Times</h4>
+        <table class="supply-table"><thead><tr><th>Rule</th><th>Details</th></tr></thead>
+          <tbody>
+            <tr><td><strong>General</strong></td><td><strong>3-5 min per French</strong></td></tr>
+            <tr><td><strong>First 10 min</strong></td><td>Full occlusive — obliterate distal pulse</td></tr>
+            <tr><td><strong>After 10 min</strong></td><td>Slowly release</td></tr>
+            <tr><td><strong>Diagnostic</strong></td><td>Min 15 min. GP IIb/IIIa → 30 min.</td></tr>
+            <tr><td><strong>Interventional</strong></td><td>Min 30 min</td></tr>
+          </tbody>
+        </table>
+        <div class="tip-box"><div class="tip-label">💡 Get help</div>Complex/fatigued → get another fellow.</div>
+        <p style="font-size:0.83em;margin-top:10px;color:var(--text-mid);">After hemostasis: Document <strong>hematoma in cm</strong>. If concern for hematoma, continue holding manual pressure. Demarcate and document size. Notify interventional fellow and interventionalist who performed the procedure.</p>
+      </div>
+      <div class="sub-panel" id="fem-post">
+        <table class="supply-table"><thead><tr><th>Sheath</th><th>Rest</th></tr></thead><tbody><tr><td>6 Fr</td><td><strong>6 hrs</strong></td></tr><tr><td>7 Fr</td><td><strong>7 hrs</strong></td></tr></tbody></table>
+        <h4>VS by Disposition</h4>
+        <table class="supply-table"><thead><tr><th>To</th><th>Schedule</th></tr></thead>
+          <tbody>
+            <tr><td><strong>CCU</strong></td><td>q10×4 → q10 til Aldrete ≥8 → q30×2 → q1h</td></tr>
+            <tr><td><strong>Recovery</strong></td><td>q15×4 → q30×2 → q1h×2 → protocol</td></tr>
+            <tr><td><strong>Floor</strong></td><td>Continue from cath RN → q30×2 → q1h×2</td></tr>
+          </tbody>
+        </table>
+        <div class="warn-box"><div class="warn-label">⚠️ Vasovagal</div>Atropine 1 mg IV + NS. Trendelenburg.</div>
+        <div class="danger-box"><div class="danger-label">🚨 RP Bleed</div>Tachy + hypotension + back pain + no hematoma → STAT CT abd/pelvis.</div>
+      </div>
+    </div>
   </div>
 
-  <!-- RADIAL BAND -->  
-  <div class="proc-item searchable" id="proc-radial" data-search="radial compression tr band prelude sync transradial wrist deflate">  
-    <div class="proc-header" onclick="toggleProc('radial')"><div class="proc-icon">🔴</div><div class="proc-title"><h3>Radial Band Removal</h3><p>TR Band / Prelude Sync • 1 mL/sec × 5 → 4 mL q15 min • Max 18 mL</p></div><div class="proc-chevron">▼</div></div>  
-    <div class="proc-body">  
-      <ol class="step-list">  
-        <li><strong>Confirm no bleeding.</strong></li>  
-        <li><strong>Non-sterile gloves.</strong> Syringe to valve.</li>  
-        <li><strong>Remove 1 mL/sec for first 5 mL.</strong> Watch site.</li>  
-        <li><strong>Bleeding?</strong> Re-inject 2 mL → wait 30 min → retry.</li>  
-        <li><strong>No bleeding?</strong> 4 mL q15 min until empty.</li>  
-        <li><strong>Remove band. Dress site.</strong></li>  
-      </ol>  
-      <p style="font-size:0.83em;color:var(--text-mid);margin-top:8px;">Monitor neurovascular. BP opposite arm. Post-removal: Q4h.</p>  
-      <div class="danger-box"><div class="danger-label">🚨 Escalate if:</div>Uncontrolled bleeding, hand pain, numbness/coldness.</div>  
-    </div>  
-  </div>  
+  <!-- RADIAL BAND -->
+  <div class="proc-item searchable" id="proc-radial" data-search="radial compression tr band prelude sync transradial wrist deflate">
+    <div class="proc-header" onclick="toggleProc('radial')"><div class="proc-icon">🔴</div><div class="proc-title"><h3>Radial Band Removal</h3><p>TR Band / Prelude Sync • 1 mL/sec × 5 → 4 mL q15 min • Max 18 mL</p></div><div class="proc-chevron">▼</div></div>
+    <div class="proc-body">
+      <ol class="step-list">
+        <li><strong>Confirm no bleeding.</strong></li>
+        <li><strong>Non-sterile gloves.</strong> Syringe to valve.</li>
+        <li><strong>Remove 1 mL/sec for first 5 mL.</strong> Watch site.</li>
+        <li><strong>Bleeding?</strong> Re-inject 2 mL → wait 30 min → retry.</li>
+        <li><strong>No bleeding?</strong> 4 mL q15 min until empty.</li>
+        <li><strong>Remove band. Dress site.</strong></li>
+      </ol>
+      <p style="font-size:0.83em;color:var(--text-mid);margin-top:8px;">Monitor neurovascular. BP opposite arm. Post-removal: Q4h.</p>
+      <div class="danger-box"><div class="danger-label">🚨 Escalate if:</div>Uncontrolled bleeding, hand pain, numbness/coldness.</div>
+    </div>
+  </div>
 </div>
 
-<!-- ROTATIONS TAB -->  
-<div class="tab-content" id="tab-rotations">  
-  <div class="rotation-card" onclick="toggleRotation(this)">  
-    <div class="rotation-header">🏥CCU▼</div>  
-    <div class="rotation-body">  
-      <h4>Responsibilities</h4>  
-      <ul style="padding-left:18px;"><li><strong>Managing the CCU</strong></li><li><strong>STEMI pager</strong></li><li><strong>STEMI/Tamponade Teams chat</strong></li><li>Procedures • MCS management</li></ul>  
-      <h4>Daily</h4><p><strong>~8:30 AM rounds</strong> with attending + residents.</p>  
-      <h4>Procedures</h4>  
-      <ul style="padding-left:18px;font-size:0.88em;"><li>Lines • TVP • Swan</li><li>IABP • Impella CP/RP/5.5</li></ul>  
-    </div>  
+<!-- ROTATIONS TAB -->
+<div class="tab-content" id="tab-rotations">
+  <div class="rotation-card">
+    <div class="rotation-header" onclick="toggleRotation(this.parentElement)"><span class="rotation-emoji">🏥</span><span class="rotation-name">CCU</span><span class="rot-chev">▼</span></div>
+    <div class="rotation-body">
+      <h4>Responsibilities</h4>
+      <ul style="padding-left:18px;"><li><strong>Managing the CCU</strong></li><li><strong>STEMI pager</strong></li><li><strong>STEMI/Tamponade Teams chat</strong></li><li>Procedures • MCS management</li></ul>
+      <h4>Daily</h4><p><strong>~8:30 AM rounds</strong> with attending + residents.</p>
+      <h4>Procedures</h4>
+      <ul style="padding-left:18px;font-size:0.88em;"><li>Lines • TVP • Swan</li><li>IABP • Impella CP/RP/5.5</li></ul>
+    </div>
   </div>
 
-  <div class="rotation-card" onclick="toggleRotation(this)">  
-    <div class="rotation-header">🫁TEE▼</div>  
-    <div class="rotation-body">  
-      <ul style="padding-left:18px;margin-bottom:12px;"><li>Perform + coordinate schedule</li><li>Location: post-cath area</li><li>Add to Schedule: <strong>ext. 1708</strong></li></ul>  
-      <table class="supply-table"><thead><tr><th>Study</th><th>Indications</th></tr></thead>  
-        <tbody><tr><td><strong>TEE+DCCV</strong></td><td>AF/AFL — r/o LAA thrombus</td></tr><tr><td><strong>IE</strong></td><td>Bacteremia, prosthetic valve</td></tr><tr><td><strong>Structural</strong></td><td>TAVR/MitraClip workup</td></tr><tr><td><strong>Stroke</strong></td><td>PFO/ASD, LAA thrombus</td></tr></tbody>  
-      </table>  
-      <h4 style="margin-top:20px;color:var(--danger);">🚫 Absolute Contraindications</h4>  
-      <ul class="contra-list absolute">  
-        <li>Perforated viscus</li><li>Esophageal stricture</li><li>Esophageal tumor</li><li>Esophageal perforation / laceration</li><li>Esophageal diverticulum</li><li>Active upper GI bleed</li><li>Cervical spinal instability</li>  
-      </ul>  
-      <h4 style="margin-top:16px;color:var(--warning);">⚠️ Relative Contraindications</h4>  
-      <ul class="contra-list relative">  
-        <li>History of radiation to neck and mediastinum</li><li>History of GI surgery</li><li>Recent upper GI bleed</li><li>Barrett's esophagus</li><li>History of dysphagia</li><li>Restriction of neck mobility (severe cervical arthritis, atlantoaxial joint disease)</li><li>Symptomatic hiatal hernia</li><li>Esophageal varices</li><li>Coagulopathy / thrombocytopenia</li><li>Active esophagitis</li><li>Active peptic ulcer disease</li><li>Active respiratory issues with significant hypoxia and/or wheezing</li><li>Loose teeth</li>  
-      </ul>  
-      <div class="warn-box" style="margin-top:14px;"><div class="warn-label">⚠️ Clinical Note</div>Patients with relative contraindications should be evaluated on a case-by-case basis. If GI pathology may pose a risk, obtain GI clearance prior to proceeding. Radiation, scleroderma, and achalasia may affect esophageal tissue and increase perforation risk.</div>  
-      <div class="ref-citation">📄 <strong>Reference:</strong> Hahn RT, et al. Guidelines for Performing a Comprehensive Transesophageal Echocardiographic Examination: Recommendations from the ASE and SCA. <em>J Am Soc Echocardiogr.</em> 2013;26:921-64.  
-🔗 <a href="https://doi.org/10.1016/j.echo.2013.07.009" target="_blank">Read Full Text →</a></div>  
-    </div>  
+  <div class="rotation-card">
+    <div class="rotation-header" onclick="toggleRotation(this.parentElement)"><span class="rotation-emoji">🫁</span><span class="rotation-name">TEE</span><span class="rot-chev">▼</span></div>
+    <div class="rotation-body">
+      <ul style="padding-left:18px;margin-bottom:12px;"><li>Perform + coordinate schedule</li><li>Location: post-cath area</li><li>Add to Schedule: <strong>ext. 1708</strong></li></ul>
+      <table class="supply-table"><thead><tr><th>Study</th><th>Indications</th></tr></thead>
+        <tbody><tr><td><strong>TEE+DCCV</strong></td><td>AF/AFL — r/o LAA thrombus</td></tr><tr><td><strong>IE</strong></td><td>Bacteremia, prosthetic valve</td></tr><tr><td><strong>Structural</strong></td><td>TAVR/MitraClip workup</td></tr><tr><td><strong>Stroke</strong></td><td>PFO/ASD, LAA thrombus</td></tr></tbody>
+      </table>
+      <h4 style="margin-top:20px;color:var(--danger);">🚫 Absolute Contraindications</h4>
+      <ul class="contra-list absolute">
+        <li>Perforated viscus</li><li>Esophageal stricture</li><li>Esophageal tumor</li><li>Esophageal perforation / laceration</li><li>Esophageal diverticulum</li><li>Active upper GI bleed</li><li>Cervical spinal instability</li>
+      </ul>
+      <h4 style="margin-top:16px;color:var(--warning);">⚠️ Relative Contraindications</h4>
+      <ul class="contra-list relative">
+        <li>History of radiation to neck and mediastinum</li><li>History of GI surgery</li><li>Recent upper GI bleed</li><li>Barrett's esophagus</li><li>History of dysphagia</li><li>Restriction of neck mobility (severe cervical arthritis, atlantoaxial joint disease)</li><li>Symptomatic hiatal hernia</li><li>Esophageal varices</li><li>Coagulopathy / thrombocytopenia</li><li>Active esophagitis</li><li>Active peptic ulcer disease</li><li>Active respiratory issues with significant hypoxia and/or wheezing</li><li>Loose teeth</li>
+      </ul>
+      <div class="warn-box" style="margin-top:14px;"><div class="warn-label">⚠️ Clinical Note</div>Patients with relative contraindications should be evaluated on a case-by-case basis. If GI pathology may pose a risk, obtain GI clearance prior to proceeding. Radiation, scleroderma, and achalasia may affect esophageal tissue and increase perforation risk.</div>
+      <div class="ref-citation">📄 <strong>Reference:</strong> Hahn RT, et al. Guidelines for Performing a Comprehensive Transesophageal Echocardiographic Examination: Recommendations from the ASE and SCA. <em>J Am Soc Echocardiogr.</em> 2013;26:921-64.<br>🔗 <a href="https://doi.org/10.1016/j.echo.2013.07.009" target="_blank">Read Full Text →</a></div>
+    </div>
   </div>
 
-  <div class="rotation-card" onclick="toggleRotation(this)"><div class="rotation-header">🏃Consults▼</div><div class="rotation-body"><p><em>Coming soon.</em></p></div></div>  
-  <div class="rotation-card" onclick="toggleRotation(this)"><div class="rotation-header">📡EP▼</div><div class="rotation-body"><p>Door code: <strong>1102</strong></p></div></div>  
-  <div class="rotation-card" onclick="toggleRotation(this)"><div class="rotation-header">💉Cath Lab▼</div><div class="rotation-body"><p><em>Coming soon.</em></p></div></div>  
-  <div class="rotation-card" onclick="toggleRotation(this)"><div class="rotation-header">🌙Night Float▼</div><div class="rotation-body"><p><em>Coming soon.</em></p></div></div>  
-  <div class="rotation-card" onclick="toggleRotation(this)"><div class="rotation-header">❤️‍🩹Heart Failure▼</div><div class="rotation-body"><p><em>Coming soon.</em></p></div></div>  
-  <div class="rotation-card" onclick="toggleRotation(this)"><div class="rotation-header">🔊Echo▼</div><div class="rotation-body"><p><em>Coming soon.</em></p></div></div>  
-  <div class="rotation-card" onclick="toggleRotation(this)"><div class="rotation-header">☢️Nuclear▼</div><div class="rotation-body"><p><em>Coming soon.</em></p></div></div>  
+  <div class="rotation-card"><div class="rotation-header" onclick="toggleRotation(this.parentElement)"><span class="rotation-emoji">🏃</span><span class="rotation-name">Consults</span><span class="rot-chev">▼</span></div><div class="rotation-body"><p><em>Coming soon.</em></p></div></div>
+  <div class="rotation-card"><div class="rotation-header" onclick="toggleRotation(this.parentElement)"><span class="rotation-emoji">📡</span><span class="rotation-name">EP</span><span class="rot-chev">▼</span></div><div class="rotation-body"><p>Door code: <strong>1102</strong></p></div></div>
+  <div class="rotation-card"><div class="rotation-header" onclick="toggleRotation(this.parentElement)"><span class="rotation-emoji">💉</span><span class="rotation-name">Cath Lab</span><span class="rot-chev">▼</span></div><div class="rotation-body"><p><em>Coming soon.</em></p></div></div>
+  <div class="rotation-card"><div class="rotation-header" onclick="toggleRotation(this.parentElement)"><span class="rotation-emoji">🌙</span><span class="rotation-name">Night Float</span><span class="rot-chev">▼</span></div><div class="rotation-body"><p><em>Coming soon.</em></p></div></div>
+  <div class="rotation-card"><div class="rotation-header" onclick="toggleRotation(this.parentElement)"><span class="rotation-emoji">❤️‍🩹</span><span class="rotation-name">Heart Failure</span><span class="rot-chev">▼</span></div><div class="rotation-body"><p><em>Coming soon.</em></p></div></div>
+  <div class="rotation-card"><div class="rotation-header" onclick="toggleRotation(this.parentElement)"><span class="rotation-emoji">🔊</span><span class="rotation-name">Echo</span><span class="rot-chev">▼</span></div><div class="rotation-body"><p><em>Coming soon.</em></p></div></div>
+  <div class="rotation-card"><div class="rotation-header" onclick="toggleRotation(this.parentElement)"><span class="rotation-emoji">☢️</span><span class="rotation-name">Nuclear</span><span class="rot-chev">▼</span></div><div class="rotation-body"><p><em>Coming soon.</em></p></div></div>
 </div>
 
-<!-- PHONES TAB -->  
-<div class="tab-content" id="tab-phones">  
-  <div class="card">  
-    <h2>📞 Phone Directory</h2>  
+<!-- PHONES TAB -->
+<div class="tab-content" id="tab-phones">
+  <div class="card">
+    <h2>📞 Phone Directory</h2>
     <p style="font-size:0.78em;color:var(--text-light);margin-bottom:10px;font-weight:500;">Tap to call • 4-digit = internal extension • Tap section to expand</p>
 
-    <div class="phone-group" onclick="togglePhoneGroup(this)">  
-      <div class="phone-group-header"><h3>🫀 Cardiology</h3>▼</div>  
-      <div class="phone-group-body">  
-        <div class="phone-entry"><div class="name">Cath Lab</div><a href="tel:">1708</a></div>  
-        <div class="phone-entry"><div class="name">Cath Lab ACP</div><a href="tel:">5744</a></div>  
-        <div class="phone-entry"><div class="name">TEE/Cath Scheduling</div><a href="tel:">1700</a></div>  
-        <div class="phone-entry"><div class="name">EP Lab</div><a href="tel:">8758</a></div>  
-        <div class="phone-entry"><div class="name">EP ACP</div><a href="tel:">7987</a></div>  
-        <div class="phone-entry"><div class="name">EP Door Code</div>🔑 1102</div>  
-        <div class="phone-entry"><div><div class="name">Echo Lab</div><div class="note">Expedite: Priscilla Rivieccio on Teams</div></div><a href="tel:">9485</a></div>  
-        <div class="phone-entry"><div class="name">Stress Lab</div><a href="tel:">9489</a></div>  
-        <div class="phone-entry"><div class="name">ECG Tech</div><a href="tel:">1677</a></div>  
-        <div class="phone-entry"><div class="name">Heart Failure ACP</div><a href="tel:">8402</a></div>  
-        <div class="phone-entry"><div class="name">Cardiology ACP</div><a href="tel:">1679</a></div>  
-      </div>  
+    <div class="phone-group">
+      <div class="phone-group-header" onclick="togglePhoneGroup(this.parentElement)"><h3>🫀 Cardiology</h3><span class="pg-chev">▼</span></div>
+      <div class="phone-group-body">
+        <div class="phone-entry"><div class="name">Cath Lab</div><a href="tel:">1708</a></div>
+        <div class="phone-entry"><div class="name">Cath Lab ACP</div><a href="tel:">5744</a></div>
+        <div class="phone-entry"><div class="name">TEE/Cath Scheduling</div><a href="tel:">1700</a></div>
+        <div class="phone-entry"><div class="name">EP Lab</div><a href="tel:">8758</a></div>
+        <div class="phone-entry"><div class="name">EP ACP</div><a href="tel:">7987</a></div>
+        <div class="phone-entry"><div class="name">EP Door Code</div><span class="code">🔑 1102</span></div>
+        <div class="phone-entry"><div><div class="name">Echo Lab</div><div class="note">Expedite: Priscilla Rivieccio on Teams</div></div><a href="tel:">9485</a></div>
+        <div class="phone-entry"><div class="name">Stress Lab</div><a href="tel:">9489</a></div>
+        <div class="phone-entry"><div class="name">ECG Tech</div><a href="tel:">1677</a></div>
+        <div class="phone-entry"><div class="name">Heart Failure ACP</div><a href="tel:">8402</a></div>
+        <div class="phone-entry"><div class="name">Cardiology ACP</div><a href="tel:">1679</a></div>
+      </div>
     </div>
 
-    <div class="phone-group" onclick="togglePhoneGroup(this)">  
-      <div class="phone-group-header"><h3>📟 Fellows</h3>▼</div>  
-      <div class="phone-group-body">  
-        <div class="phone-entry"><div class="name">Consult Fellow (7a-5p)</div><a href="tel:">6763</a></div>  
-        <div class="phone-entry"><div class="name">CCU Fellow / Evening-Night</div><a href="tel:">9419</a></div>  
-      </div>  
+    <div class="phone-group">
+      <div class="phone-group-header" onclick="togglePhoneGroup(this.parentElement)"><h3>📟 Fellows</h3><span class="pg-chev">▼</span></div>
+      <div class="phone-group-body">
+        <div class="phone-entry"><div class="name">Consult Fellow (7a-5p)</div><a href="tel:">6763</a></div>
+        <div class="phone-entry"><div class="name">CCU Fellow / Evening-Night</div><a href="tel:">9419</a></div>
+      </div>
     </div>
 
-    <div class="phone-group" onclick="togglePhoneGroup(this)">  
-      <div class="phone-group-header"><h3>🏥 CCU / ICU</h3>▼</div>  
-      <div class="phone-group-body">  
-        <div class="phone-entry"><div class="name">CCU Clerk</div><a href="tel:">9240</a></div>  
-        <div class="phone-entry"><div class="name">CCU Senior Resident</div><a href="tel:">6685</a></div>  
-        <div class="phone-entry"><div class="name">CTU Desk</div><a href="tel:">1650/1651</a></div>  
-        <div class="phone-entry"><div class="name">CTU Intensivist</div><a href="tel:">1673</a></div>  
-        <div class="phone-entry"><div class="name">ICU Fellow (day)</div><a href="tel:">7926</a></div>  
-        <div class="phone-entry"><div class="name">Pulm/ICU (night)</div><a href="tel:7189805700">718-980-5700</a></div>  
-      </div>  
+    <div class="phone-group">
+      <div class="phone-group-header" onclick="togglePhoneGroup(this.parentElement)"><h3>🏥 CCU / ICU</h3><span class="pg-chev">▼</span></div>
+      <div class="phone-group-body">
+        <div class="phone-entry"><div class="name">CCU Clerk</div><a href="tel:">9240</a></div>
+        <div class="phone-entry"><div class="name">CCU Senior Resident</div><a href="tel:">6685</a></div>
+        <div class="phone-entry"><div class="name">CTU Desk</div><a href="tel:">1650/1651</a></div>
+        <div class="phone-entry"><div class="name">CTU Intensivist</div><a href="tel:">1673</a></div>
+        <div class="phone-entry"><div class="name">ICU Fellow (day)</div><a href="tel:">7926</a></div>
+        <div class="phone-entry"><div class="name">Pulm/ICU (night)</div><a href="tel:7189805700">718-980-5700</a></div>
+      </div>
     </div>
 
-    <div class="phone-group" onclick="togglePhoneGroup(this)">  
-      <div class="phone-group-header"><h3>🔪 Surgery</h3>▼</div>  
-      <div class="phone-group-body">  
-        <div class="phone-entry"><div class="name">CT Surgery ACP</div><a href="tel:">1158</a></div>  
-        <div class="phone-entry"><div class="name">CT Surgery OR</div><a href="tel:">1600</a></div>  
-      </div>  
+    <div class="phone-group">
+      <div class="phone-group-header" onclick="togglePhoneGroup(this.parentElement)"><h3>🔪 Surgery</h3><span class="pg-chev">▼</span></div>
+      <div class="phone-group-body">
+        <div class="phone-entry"><div class="name">CT Surgery ACP</div><a href="tel:">1158</a></div>
+        <div class="phone-entry"><div class="name">CT Surgery OR</div><a href="tel:">1600</a></div>
+      </div>
     </div>
 
-    <div class="phone-group" onclick="togglePhoneGroup(this)">  
-      <div class="phone-group-header"><h3>🩺 Consults</h3>▼</div>  
-      <div class="phone-group-body">  
-        <div class="phone-entry"><div class="name">GI</div><a href="tel:">9184</a></div>  
-        <div class="phone-entry"><div class="name">Advanced GI</div><a href="tel:">4339</a></div>  
-        <div class="phone-entry"><div class="name">Endoscopy</div><a href="tel:">9261</a></div>  
-        <div class="phone-entry"><div class="name">Nephrology</div><a href="tel:">7929</a></div>  
-        <div class="phone-entry"><div class="name">Hemodialysis</div><a href="tel:">9133/9134</a></div>  
-        <div class="phone-entry"><div class="name">Pulmonary</div><a href="tel:">8316</a></div>  
-        <div class="phone-entry"><div class="name">ID</div><a href="tel:">5846</a></div>  
-        <div class="phone-entry"><div class="name">ENT</div><a href="tel:">8580</a></div>  
-        <div class="phone-entry"><div class="name">Urology</div><a href="tel:">4338</a></div>  
-        <div class="phone-entry"><div class="name">Speech/Swallow</div><a href="tel:">8276</a></div>  
-      </div>  
+    <div class="phone-group">
+      <div class="phone-group-header" onclick="togglePhoneGroup(this.parentElement)"><h3>🩺 Consults</h3><span class="pg-chev">▼</span></div>
+      <div class="phone-group-body">
+        <div class="phone-entry"><div class="name">GI</div><a href="tel:">9184</a></div>
+        <div class="phone-entry"><div class="name">Advanced GI</div><a href="tel:">4339</a></div>
+        <div class="phone-entry"><div class="name">Endoscopy</div><a href="tel:">9261</a></div>
+        <div class="phone-entry"><div class="name">Nephrology</div><a href="tel:">7929</a></div>
+        <div class="phone-entry"><div class="name">Hemodialysis</div><a href="tel:">9133/9134</a></div>
+        <div class="phone-entry"><div class="name">Pulmonary</div><a href="tel:">8316</a></div>
+        <div class="phone-entry"><div class="name">ID</div><a href="tel:">5846</a></div>
+        <div class="phone-entry"><div class="name">ENT</div><a href="tel:">8580</a></div>
+        <div class="phone-entry"><div class="name">Urology</div><a href="tel:">4338</a></div>
+        <div class="phone-entry"><div class="name">Speech/Swallow</div><a href="tel:">8276</a></div>
+      </div>
     </div>
 
-    <div class="phone-group" onclick="togglePhoneGroup(this)">  
-      <div class="phone-group-header"><h3>🔬 Lab / Imaging</h3>▼</div>  
-      <div class="phone-group-body">  
-        <div class="phone-entry"><div class="name">Main Lab</div><a href="tel:">9400</a></div>  
-        <div class="phone-entry"><div class="name">Core Lab (Manhasset)</div><a href="tel:5167191100">516-719-1100</a></div>  
-        <div class="phone-entry"><div class="name">Radiology</div><a href="tel:">9197</a></div>  
-        <div class="phone-entry"><div class="name">Radiology Reader</div><a href="tel:">7515/7517</a></div>  
-        <div class="phone-entry"><div class="name">MRI</div><a href="tel:">8409</a></div>  
-        <div class="phone-entry"><div class="name">CT (CCTAs)</div><a href="tel:">8668</a></div>  
-        <div class="phone-entry"><div class="name">Other CTs</div><a href="tel:">6783/5872/1682/8300/5432</a></div>  
-        <div class="phone-entry"><div class="name">General US</div><a href="tel:">8816</a></div>  
-        <div class="phone-entry"><div class="name">Vascular US</div><a href="tel:">9403</a></div>  
-        <div class="phone-entry"><div class="name">Vascular Reader</div><a href="tel:">6058</a></div>  
-        <div class="phone-entry"><div class="name">Nuclear Med</div><a href="tel:">9194</a></div>  
-        <div class="phone-entry"><div class="name">Nuclear Radiologist</div><a href="tel:">8534</a></div>  
-      </div>  
+    <div class="phone-group">
+      <div class="phone-group-header" onclick="togglePhoneGroup(this.parentElement)"><h3>🔬 Lab / Imaging</h3><span class="pg-chev">▼</span></div>
+      <div class="phone-group-body">
+        <div class="phone-entry"><div class="name">Main Lab</div><a href="tel:">9400</a></div>
+        <div class="phone-entry"><div class="name">Core Lab (Manhasset)</div><a href="tel:5167191100">516-719-1100</a></div>
+        <div class="phone-entry"><div class="name">Radiology</div><a href="tel:">9197</a></div>
+        <div class="phone-entry"><div class="name">Radiology Reader</div><a href="tel:">7515/7517</a></div>
+        <div class="phone-entry"><div class="name">MRI</div><a href="tel:">8409</a></div>
+        <div class="phone-entry"><div class="name">CT (CCTAs)</div><a href="tel:">8668</a></div>
+        <div class="phone-entry"><div class="name">Other CTs</div><a href="tel:">6783/5872/1682/8300/5432</a></div>
+        <div class="phone-entry"><div class="name">General US</div><a href="tel:">8816</a></div>
+        <div class="phone-entry"><div class="name">Vascular US</div><a href="tel:">9403</a></div>
+        <div class="phone-entry"><div class="name">Vascular Reader</div><a href="tel:">6058</a></div>
+        <div class="phone-entry"><div class="name">Nuclear Med</div><a href="tel:">9194</a></div>
+        <div class="phone-entry"><div class="name">Nuclear Radiologist</div><a href="tel:">8534</a></div>
+      </div>
     </div>
 
-    <div class="phone-group" onclick="togglePhoneGroup(this)">  
-      <div class="phone-group-header"><h3>🏨 Hospital</h3>▼</div>  
-      <div class="phone-group-body">  
-        <div class="phone-entry"><div class="name">MAR</div><a href="tel:">9182</a></div>  
-        <div class="phone-entry"><div class="name">Operator</div><a href="tel:">8999</a></div>  
-        <div class="phone-entry"><div class="name">Transfer Center</div><a href="tel:8666942337">866-694-2337</a></div>  
-        <div class="phone-entry"><div class="name">Bed Management</div><a href="tel:">8414/8415</a></div>  
-        <div class="phone-entry"><div class="name">Logistics</div><a href="tel:">1473/6692</a></div>  
-        <div class="phone-entry"><div class="name">Pharmacy</div><a href="tel:">9232</a></div>  
-        <div class="phone-entry"><div class="name">VIVO Pharmacy</div><a href="tel:">1914</a></div>  
-        <div class="phone-entry"><div class="name">Respiratory</div><a href="tel:">5928</a></div>  
-        <div class="phone-entry"><div class="name">Medical Records</div><a href="tel:">9017/9020</a></div>  
-        <div class="phone-entry"><div class="name">Infection Control</div><a href="tel:">9062</a></div>  
-        <div class="phone-entry"><div class="name">Outpatient ID</div><a href="tel:7188163362">718-816-3362</a></div>  
-        <div class="phone-entry"><div class="name">Security</div><a href="tel:">1064</a></div>  
-        <div class="phone-entry"><div class="name">Engineering</div><a href="tel:">1958</a></div>  
-        <div class="phone-entry"><div class="name">Boiler Room</div><a href="tel:">6399</a></div>  
-      </div>  
+    <div class="phone-group">
+      <div class="phone-group-header" onclick="togglePhoneGroup(this.parentElement)"><h3>🏨 Hospital</h3><span class="pg-chev">▼</span></div>
+      <div class="phone-group-body">
+        <div class="phone-entry"><div class="name">MAR</div><a href="tel:">9182</a></div>
+        <div class="phone-entry"><div class="name">Operator</div><a href="tel:">8999</a></div>
+        <div class="phone-entry"><div class="name">Transfer Center</div><a href="tel:8666942337">866-694-2337</a></div>
+        <div class="phone-entry"><div class="name">Bed Management</div><a href="tel:">8414/8415</a></div>
+        <div class="phone-entry"><div class="name">Logistics</div><a href="tel:">1473/6692</a></div>
+        <div class="phone-entry"><div class="name">Pharmacy</div><a href="tel:">9232</a></div>
+        <div class="phone-entry"><div class="name">VIVO Pharmacy</div><a href="tel:">1914</a></div>
+        <div class="phone-entry"><div class="name">Respiratory</div><a href="tel:">5928</a></div>
+        <div class="phone-entry"><div class="name">Medical Records</div><a href="tel:">9017/9020</a></div>
+        <div class="phone-entry"><div class="name">Infection Control</div><a href="tel:">9062</a></div>
+        <div class="phone-entry"><div class="name">Outpatient ID</div><a href="tel:7188163362">718-816-3362</a></div>
+        <div class="phone-entry"><div class="name">Security</div><a href="tel:">1064</a></div>
+        <div class="phone-entry"><div class="name">Engineering</div><a href="tel:">1958</a></div>
+        <div class="phone-entry"><div class="name">Boiler Room</div><a href="tel:">6399</a></div>
+      </div>
     </div>
 
-    <div class="phone-group" onclick="togglePhoneGroup(this)">  
-      <div class="phone-group-header"><h3>🏢 Floors</h3>▼</div>  
-      <div class="phone-group-body">  
-        <div class="phone-entry"><div class="name">4T</div><a href="tel:">9050</a></div>  
-        <div class="phone-entry"><div class="name">4T ACP</div><a href="tel:">6466</a></div>  
-        <div class="phone-entry"><div class="name">4T (external)</div><a href="tel:7182266466">718-226-6466</a></div>  
-      </div>  
+    <div class="phone-group">
+      <div class="phone-group-header" onclick="togglePhoneGroup(this.parentElement)"><h3>🏢 Floors</h3><span class="pg-chev">▼</span></div>
+      <div class="phone-group-body">
+        <div class="phone-entry"><div class="name">4T</div><a href="tel:">9050</a></div>
+        <div class="phone-entry"><div class="name">4T ACP</div><a href="tel:">6466</a></div>
+        <div class="phone-entry"><div class="name">4T (external)</div><a href="tel:7182266466">718-226-6466</a></div>
+      </div>
     </div>
 
-    <div class="phone-group" onclick="togglePhoneGroup(this)">  
-      <div class="phone-group-header"><h3>🏥 Private Groups — Office Numbers</h3>▼</div>  
-      <div class="phone-group-body">  
-        <div class="phone-entry"><div><div class="name">Service Cardiology</div><div class="note">Barry, Behuria, Bhasin, Bjorklund, Dulnuan, Kandov, Lee, Malpeso, Maniatis, Nevelev, Olkovsky, Rahman, Royzman, Salmane, Schesing, Srinivas, Stahl, Varughese, Weinberg</div></div><a href="tel:7182265800">718-226-5800</a></div>  
-        <div class="phone-entry"><div><div class="name">CV Associates</div><div class="note">Ghavami, Mustaciuolo, O'Byrne, Spagnola, Tamburrino</div></div><a href="tel:7186670077">718-667-0077</a></div>  
-        <div class="phone-entry"><div><div class="name">Mt Sinai SI</div><div class="note">Ahilan, Duvvuri, Gala, Sicat, Sineri</div></div><a href="tel:7189812684">718-981-2684</a></div>  
-        <div class="phone-entry"><div class="name">Hoyek</div><a href="tel:9179221744">917-922-1744</a></div>  
-        <div class="phone-entry"><div class="name">Snyder</div><a href="tel:7183511136">718-351-1136</a></div>  
-      </div>  
+    <div class="phone-group">
+      <div class="phone-group-header" onclick="togglePhoneGroup(this.parentElement)"><h3>🏥 Private Groups — Office Numbers</h3><span class="pg-chev">▼</span></div>
+      <div class="phone-group-body">
+        <div class="phone-entry"><div><div class="name">Service Cardiology</div><div class="note">Barry, Behuria, Bhasin, Bjorklund, Dulnuan, Kandov, Lee, Malpeso, Maniatis, Nevelev, Olkovsky, Rahman, Royzman, Salmane, Schesing, Srinivas, Stahl, Varughese, Weinberg</div></div><a href="tel:7182265800">718-226-5800</a></div>
+        <div class="phone-entry"><div><div class="name">CV Associates</div><div class="note">Ghavami, Mustaciuolo, O'Byrne, Spagnola, Tamburrino</div></div><a href="tel:7186670077">718-667-0077</a></div>
+        <div class="phone-entry"><div><div class="name">Mt Sinai SI</div><div class="note">Ahilan, Duvvuri, Gala, Sicat, Sineri</div></div><a href="tel:7189812684">718-981-2684</a></div>
+        <div class="phone-entry"><div class="name">Hoyek</div><a href="tel:9179221744">917-922-1744</a></div>
+        <div class="phone-entry"><div class="name">Snyder</div><a href="tel:7183511136">718-351-1136</a></div>
+      </div>
     </div>
 
-    <div class="phone-group" onclick="togglePhoneGroup(this)">  
-      <div class="phone-group-header"><h3>📱 Attending Cell Phones</h3>▼</div>  
-      <div class="phone-group-body">  
-        <div class="attending-group">  
-          <h4>🏥 Service — SIUH Main</h4>  
-          <div class="attending-entry"><div class="name">Behuria</div><a href="tel:7736773778">773-677-3778</a></div>  
-          <div class="attending-entry"><div class="name">Bhasin</div><a href="tel:2017596176">201-759-6176</a></div>  
-          <div class="attending-entry"><div class="name">Bjorklund</div><a href="tel:4174379952">417-437-9952</a></div>  
-          <div class="attending-entry"><div class="name">Dulnuan</div><a href="tel:3153958014">315-395-8014</a></div>  
-          <div class="attending-entry"><div class="name">Kandov</div><a href="tel:9179457400">917-945-7400</a></div>  
-          <div class="attending-entry"><div class="name">Lee</div><a href="tel:9176553998">917-655-3998</a></div>  
-          <div class="attending-entry"><div class="name">Malpeso</div><a href="tel:9175890390">917-589-0390</a></div>  
-          <div class="attending-entry"><div class="name">Maniatis</div><a href="tel:7184907133">718-490-7133</a></div>  
-          <div class="attending-entry"><div class="name">Nevelev</div><a href="tel:7187900436">718-790-0436</a></div>  
-          <div class="attending-entry"><div class="name">Olkovsky</div><a href="tel:3475637878">347-563-7878</a></div>  
-          <div class="attending-entry"><div class="name">Rahman</div><a href="tel:7183443460">718-344-3460</a></div>  
-          <div class="attending-entry"><div class="name">Royzman</div><a href="tel:6464319476">646-431-9476</a></div>  
-          <div class="attending-entry"><div class="name">Salmane</div><a href="tel:3474626300">347-462-6300</a></div>  
-          <div class="attending-entry"><div class="name">Schesing</div><a href="tel:2016936141">201-693-6141</a></div>  
-          <div class="attending-entry"><div class="name">Stahl</div><a href="tel:4045125202">404-512-5202</a></div>  
-          <div class="attending-entry"><div class="name">Weinberg</div><a href="tel:9172323789">917-232-3789</a></div>  
-        </div>  
-        <div class="attending-group">  
-          <h4>🏥 Service — Prince's Bay / South</h4>  
-          <div class="attending-entry"><div class="name">Barry</div><a href="tel:5162368752">516-236-8752</a></div>  
-          <div class="attending-entry"><div class="name">Bogin</div><a href="tel:9178615156">917-861-5156</a></div>  
-          <div class="attending-entry"><div class="name">Srinivas</div><a href="tel:2482458083">248-245-8083</a></div>  
-          <div class="attending-entry"><div class="name">Varughese</div><a href="tel:9179681846">917-968-1846</a></div>  
-        </div>  
-        <div class="attending-group">  
-          <h4>⚡ Electrophysiology (EP)</h4>  
-          <div class="attending-entry"><div class="name">Akhrass</div><a href="tel:9293081614">929-308-1614</a></div>  
-          <div class="attending-entry"><div class="name">Kowalski</div><a href="tel:5162704365">516-270-4365</a></div>  
-          <div class="attending-entry"><div class="name">Parikh</div><a href="tel:6307498473">630-749-8473</a></div>  
-          <div class="attending-entry"><div class="name">Saouma</div><a href="tel:6095981636">609-598-1636</a></div>  
-          <div class="attending-entry"><div class="name">Shah</div><a href="tel:9292624609">929-262-4609</a></div>  
-        </div>  
-        <div class="attending-group">  
-          <h4>🏢 CV Associates of SI</h4>  
-          <div class="group-office">Office: <a href="tel:7186670077" style="color:var(--primary);font-weight:600;text-decoration:none;">718-667-0077</a></div>  
-          <div class="attending-entry"><div class="name">Ghavami</div><a href="tel:9178167178">917-816-7178</a></div>  
-          <div class="attending-entry"><div class="name">Mustaciuolo</div><a href="tel:9173596638">917-359-6638</a></div>  
-          <div class="attending-entry"><div class="name">O'Byrne</div><a href="tel:3744468501">374-446-8501</a></div>  
-          <div class="attending-entry"><div class="name">Spagnola</div><a href="tel:9172570024">917-257-0024</a></div>  
-          <div class="attending-entry"><div class="name">Tamburrino</div><a href="tel:9176782191">917-678-2191</a></div>  
-        </div>  
-        <div class="attending-group">  
-          <h4>🏢 Mt Sinai Doctors — SI Cardiology</h4>  
-          <div class="group-office">Office: <a href="tel:7189812684" style="color:var(--primary);font-weight:600;text-decoration:none;">718-981-2684</a></div>  
-          <div class="attending-entry"><div class="name">Ahilan</div><a href="tel:9173276958">917-327-6958</a></div>  
-          <div class="attending-entry"><div class="name">Duvvuri</div><a href="tel:3473077937">347-307-7937</a></div>  
-          <div class="attending-entry"><div class="name">Gala</div><a href="tel:3477425498">347-742-5498</a></div>  
-          <div class="attending-entry"><div class="name">Sicat</div><a href="tel:6463572856">646-357-2856</a></div>  
-          <div class="attending-entry"><div class="name">Sineri</div><a href="tel:6462561296">646-256-1296</a></div>  
-        </div>  
-        <div class="attending-group">  
-          <h4>🏢 Independent</h4>  
-          <div class="attending-entry"><div class="name">Ali Salman</div><a href="tel:3195418092">319-541-8092</a></div>  
-          <div class="attending-entry"><div class="name">Snyder</div><a href="tel:9177102832">917-710-2832</a></div>  
-          <div class="attending-entry"><div class="name">Zgheib</div><a href="tel:9173634402">917-363-4402</a></div>  
-        </div>  
-      </div>  
-    </div>  
-  </div>  
+    <div class="phone-group">
+      <div class="phone-group-header" onclick="togglePhoneGroup(this.parentElement)"><h3>📱 Attending Cell Phones</h3><span class="pg-chev">▼</span></div>
+      <div class="phone-group-body">
+        <div class="attending-group">
+          <h4>🏥 Service — SIUH Main</h4>
+          <div class="attending-entry"><div class="name">Behuria</div><a href="tel:7736773778">773-677-3778</a></div>
+          <div class="attending-entry"><div class="name">Bhasin</div><a href="tel:2017596176">201-759-6176</a></div>
+          <div class="attending-entry"><div class="name">Bjorklund</div><a href="tel:4174379952">417-437-9952</a></div>
+          <div class="attending-entry"><div class="name">Dulnuan</div><a href="tel:3153958014">315-395-8014</a></div>
+          <div class="attending-entry"><div class="name">Kandov</div><a href="tel:9179457400">917-945-7400</a></div>
+          <div class="attending-entry"><div class="name">Lee</div><a href="tel:9176553998">917-655-3998</a></div>
+          <div class="attending-entry"><div class="name">Malpeso</div><a href="tel:9175890390">917-589-0390</a></div>
+          <div class="attending-entry"><div class="name">Maniatis</div><a href="tel:7184907133">718-490-7133</a></div>
+          <div class="attending-entry"><div class="name">Nevelev</div><a href="tel:7187900436">718-790-0436</a></div>
+          <div class="attending-entry"><div class="name">Olkovsky</div><a href="tel:3475637878">347-563-7878</a></div>
+          <div class="attending-entry"><div class="name">Rahman</div><a href="tel:7183443460">718-344-3460</a></div>
+          <div class="attending-entry"><div class="name">Royzman</div><a href="tel:6464319476">646-431-9476</a></div>
+          <div class="attending-entry"><div class="name">Salmane</div><a href="tel:3474626300">347-462-6300</a></div>
+          <div class="attending-entry"><div class="name">Schesing</div><a href="tel:2016936141">201-693-6141</a></div>
+          <div class="attending-entry"><div class="name">Stahl</div><a href="tel:4045125202">404-512-5202</a></div>
+          <div class="attending-entry"><div class="name">Weinberg</div><a href="tel:9172323789">917-232-3789</a></div>
+        </div>
+        <div class="attending-group">
+          <h4>🏥 Service — Prince's Bay / South</h4>
+          <div class="attending-entry"><div class="name">Barry</div><a href="tel:5162368752">516-236-8752</a></div>
+          <div class="attending-entry"><div class="name">Bogin</div><a href="tel:9178615156">917-861-5156</a></div>
+          <div class="attending-entry"><div class="name">Srinivas</div><a href="tel:2482458083">248-245-8083</a></div>
+          <div class="attending-entry"><div class="name">Varughese</div><a href="tel:9179681846">917-968-1846</a></div>
+        </div>
+        <div class="attending-group">
+          <h4>⚡ Electrophysiology (EP)</h4>
+          <div class="attending-entry"><div class="name">Akhrass</div><a href="tel:9293081614">929-308-1614</a></div>
+          <div class="attending-entry"><div class="name">Kowalski</div><a href="tel:5162704365">516-270-4365</a></div>
+          <div class="attending-entry"><div class="name">Parikh</div><a href="tel:6307498473">630-749-8473</a></div>
+          <div class="attending-entry"><div class="name">Saouma</div><a href="tel:6095981636">609-598-1636</a></div>
+          <div class="attending-entry"><div class="name">Shah</div><a href="tel:9292624609">929-262-4609</a></div>
+        </div>
+        <div class="attending-group">
+          <h4>🏢 CV Associates of SI</h4>
+          <div class="group-office">Office: <a href="tel:7186670077" style="color:var(--primary);font-weight:600;text-decoration:none;">718-667-0077</a></div>
+          <div class="attending-entry"><div class="name">Ghavami</div><a href="tel:9178167178">917-816-7178</a></div>
+          <div class="attending-entry"><div class="name">Mustaciuolo</div><a href="tel:9173596638">917-359-6638</a></div>
+          <div class="attending-entry"><div class="name">O'Byrne</div><a href="tel:3744468501">374-446-8501</a></div>
+          <div class="attending-entry"><div class="name">Spagnola</div><a href="tel:9172570024">917-257-0024</a></div>
+          <div class="attending-entry"><div class="name">Tamburrino</div><a href="tel:9176782191">917-678-2191</a></div>
+        </div>
+        <div class="attending-group">
+          <h4>🏢 Mt Sinai Doctors — SI Cardiology</h4>
+          <div class="group-office">Office: <a href="tel:7189812684" style="color:var(--primary);font-weight:600;text-decoration:none;">718-981-2684</a></div>
+          <div class="attending-entry"><div class="name">Ahilan</div><a href="tel:9173276958">917-327-6958</a></div>
+          <div class="attending-entry"><div class="name">Duvvuri</div><a href="tel:3473077937">347-307-7937</a></div>
+          <div class="attending-entry"><div class="name">Gala</div><a href="tel:3477425498">347-742-5498</a></div>
+          <div class="attending-entry"><div class="name">Sicat</div><a href="tel:6463572856">646-357-2856</a></div>
+          <div class="attending-entry"><div class="name">Sineri</div><a href="tel:6462561296">646-256-1296</a></div>
+        </div>
+        <div class="attending-group">
+          <h4>🏢 Independent</h4>
+          <div class="attending-entry"><div class="name">Ali Salman</div><a href="tel:3195418092">319-541-8092</a></div>
+          <div class="attending-entry"><div class="name">Snyder</div><a href="tel:9177102832">917-710-2832</a></div>
+          <div class="attending-entry"><div class="name">Zgheib</div><a href="tel:9173634402">917-363-4402</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- QUICK REF TAB -->  
+<!-- QUICK REF TAB -->
 <div class="tab-content" id="tab-quickref">
 
-  <div class="card"><h3>🫀 Shock Differentiation</h3>  
-    <div style="overflow-x:auto;"><table class="supply-table"><thead><tr><th>Type</th><th>CO</th><th>Filling</th><th>SVR</th><th>SvO₂</th><th>Echo</th></tr></thead>  
-      <tbody>  
-        <tr><td><strong>Cardiogenic</strong></td><td>↓↓</td><td>↑↑</td><td>↑↑</td><td>↓↓</td><td>Hypocontractile</td></tr>  
-        <tr><td><strong>Hypovolemic</strong></td><td>↓↓</td><td>↓↓</td><td>↑↑</td><td>↓↓</td><td>Underfilled</td></tr>  
-        <tr><td><strong>Distributive</strong></td><td>↑↑</td><td>↓</td><td>↓↓</td><td>↑↑</td><td>Hyperdynamic</td></tr>  
-        <tr><td><strong>Obstructive</strong></td><td>↓↓</td><td>↑↑</td><td>↑↑</td><td>↓↓</td><td>Effusion, Bad RV</td></tr>  
-      </tbody>  
-    </table></div>  
-    <div class="info-box" style="margin-top:10px;"><strong>Cardiogenic Shock Criteria:</strong> CI <2.2 | SVR >1200 | PCWP >15  
-<strong>Treatment Goals:</strong> MAP ≥65 | CVP 6-10 | PCWP <15 | CI >2.2 | SVR 800-1200</div>  
+  <div class="card"><h3>🫀 Shock Differentiation</h3>
+    <div style="overflow-x:auto;"><table class="supply-table"><thead><tr><th>Type</th><th>CO</th><th>Filling</th><th>SVR</th><th>SvO₂</th><th>Echo</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Cardiogenic</strong></td><td>↓↓</td><td>↑↑</td><td>↑↑</td><td>↓↓</td><td>Hypocontractile</td></tr>
+        <tr><td><strong>Hypovolemic</strong></td><td>↓↓</td><td>↓↓</td><td>↑↑</td><td>↓↓</td><td>Underfilled</td></tr>
+        <tr><td><strong>Distributive</strong></td><td>↑↑</td><td>↓</td><td>↓↓</td><td>↑↑</td><td>Hyperdynamic</td></tr>
+        <tr><td><strong>Obstructive</strong></td><td>↓↓</td><td>↑↑</td><td>↑↑</td><td>↓↓</td><td>Effusion, Bad RV</td></tr>
+      </tbody>
+    </table></div>
+    <div class="info-box" style="margin-top:10px;"><strong>Cardiogenic Shock Criteria:</strong> CI <2.2 | SVR >1200 | PCWP >15<br><strong>Treatment Goals:</strong> MAP ≥65 | CVP 6-10 | PCWP <15 | CI >2.2 | SVR 800-1200</div>
   </div>
 
-  <div class="card"><h3>💉 Vasopressors</h3>  
-    <div style="overflow-x:auto;"><table class="supply-table"><thead><tr><th></th><th>Norepinephrine</th><th>Epinephrine</th><th>Dopamine</th><th>Vasopressin</th><th>Phenylephrine</th></tr></thead>  
-      <tbody>  
-        <tr><td><strong>Dose</strong></td><td>0.05–0.5 mcg/kg/min</td><td>0.03–0.5 mcg/kg/min</td><td>5–20 mcg/kg/min</td><td>0.04 u/min</td><td>0.1–3 mcg/kg/min</td></tr>  
-        <tr><td><strong>Equiv dose</strong></td><td>0.1 mcg/kg/min</td><td>0.1 mcg/kg/min</td><td>15 mcg/kg/min</td><td>0.04 u/min</td><td>1 mcg/kg/min</td></tr>  
-        <tr><td><strong>Site of Action</strong></td><td>Low: α1>β1  
-High: α1=β1</td><td>All: β1≥α1</td><td>0-5: D1  
-5-10: β1  
-10-20: α1</td><td>V1 + V2</td><td>α1</td></tr>  
-        <tr><td><strong>Tachycardia</strong></td><td>Mild</td><td>Strong</td><td>Strong</td><td>None</td><td>None</td></tr>  
-        <tr><td><strong>Proarrhythmia</strong></td><td>Mild</td><td>Very Strong</td><td>Very Strong</td><td>None</td><td>None</td></tr>  
-        <tr><td><strong>Effect on CO</strong></td><td>Low: no Δ  
-High: ↑</td><td>Strong ↑</td><td>↑</td><td>↓</td><td>↓</td></tr>  
-        <tr><td><strong>Ideal Use</strong></td><td><strong>FIRST-LINE</strong></td><td>Bradycardia, Anaphylaxis, Refractory shock</td><td>Bradycardia, Low-dose inotrope</td><td><strong>SECOND-LINE</strong></td><td>HOCM, AS, MS</td></tr>  
-      </tbody>  
-    </table></div>  
+  <div class="card"><h3>💉 Vasopressors</h3>
+    <div style="overflow-x:auto;"><table class="supply-table"><thead><tr><th></th><th>Norepinephrine</th><th>Epinephrine</th><th>Dopamine</th><th>Vasopressin</th><th>Phenylephrine</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Dose</strong></td><td>0.05–0.5 mcg/kg/min</td><td>0.03–0.5 mcg/kg/min</td><td>5–20 mcg/kg/min</td><td>0.04 u/min</td><td>0.1–3 mcg/kg/min</td></tr>
+        <tr><td><strong>Equiv dose</strong></td><td>0.1 mcg/kg/min</td><td>0.1 mcg/kg/min</td><td>15 mcg/kg/min</td><td>0.04 u/min</td><td>1 mcg/kg/min</td></tr>
+        <tr><td><strong>Site of Action</strong></td><td>Low: α1>β1<br>High: α1=β1</td><td>All: β1≥α1</td><td>0-5: D1<br>5-10: β1<br>10-20: α1</td><td>V1 + V2</td><td>α1</td></tr>
+        <tr><td><strong>Tachycardia</strong></td><td>Mild</td><td>Strong</td><td>Strong</td><td>None</td><td>None</td></tr>
+        <tr><td><strong>Proarrhythmia</strong></td><td>Mild</td><td>Very Strong</td><td>Very Strong</td><td>None</td><td>None</td></tr>
+        <tr><td><strong>Effect on CO</strong></td><td>Low: no Δ<br>High: ↑</td><td>Strong ↑</td><td>↑</td><td>↓</td><td>↓</td></tr>
+        <tr><td><strong>Ideal Use</strong></td><td><strong>FIRST-LINE</strong></td><td>Bradycardia, Anaphylaxis, Refractory shock</td><td>Bradycardia, Low-dose inotrope</td><td><strong>SECOND-LINE</strong></td><td>HOCM, AS, MS</td></tr>
+      </tbody>
+    </table></div>
   </div>
 
-  <div class="card"><h3>💪 Inotropes</h3>  
-    <div style="overflow-x:auto;"><table class="supply-table"><thead><tr><th></th><th>Dobutamine</th><th>Milrinone</th><th>Dopamine</th><th>Epinephrine</th></tr></thead>  
-      <tbody>  
-        <tr><td><strong>Dose</strong></td><td>2.5–10 mcg/kg/min</td><td>0.125–0.75 mcg/kg/min</td><td>5–20 mcg/kg/min</td><td>0.03–0.5 mcg/kg/min</td></tr>  
-        <tr><td><strong>Mechanism</strong></td><td>Beta-agonist</td><td>PDE3-inhibitor</td><td>Beta-agonist</td><td>Beta-agonist</td></tr>  
-        <tr><td><strong>Clearance</strong></td><td>Rapid (enzymatic)</td><td>Slow (renal)</td><td>Rapid (enzymatic)</td><td>Rapid (enzymatic)</td></tr>  
-        <tr><td><strong>Inotropy</strong></td><td>Strong</td><td>Moderate</td><td>Strong</td><td>Strong</td></tr>  
-        <tr><td><strong>Tachycardia</strong></td><td>Strong</td><td>Mild</td><td>Strong</td><td>Strong</td></tr>  
-        <tr><td><strong>Proarrhythmia</strong></td><td>Strong</td><td>Moderate</td><td>Strong</td><td>Strong</td></tr>  
-        <tr><td><strong>Vasodilation</strong></td><td>Mild</td><td>Strong</td><td>None</td><td>None</td></tr>  
-        <tr><td><strong>Afterload/PCWP</strong></td><td>Reduced</td><td>Strongly reduced</td><td>Increased</td><td>Increased</td></tr>  
-        <tr><td><strong>PVR</strong></td><td>No change</td><td>Reduced</td><td>Increased</td><td>Increased</td></tr>  
-        <tr><td><strong>Ideal Use</strong></td><td>Pre-shock (SBP>70), Shock (with NE)</td><td>Chronic HF/RVF, Pulmonary HTN</td><td>Bradycardia, Low SVR</td><td>Bradycardia, Low SVR</td></tr>  
-      </tbody>  
-    </table></div>  
+  <div class="card"><h3>💪 Inotropes</h3>
+    <div style="overflow-x:auto;"><table class="supply-table"><thead><tr><th></th><th>Dobutamine</th><th>Milrinone</th><th>Dopamine</th><th>Epinephrine</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Dose</strong></td><td>2.5–10 mcg/kg/min</td><td>0.125–0.75 mcg/kg/min</td><td>5–20 mcg/kg/min</td><td>0.03–0.5 mcg/kg/min</td></tr>
+        <tr><td><strong>Mechanism</strong></td><td>Beta-agonist</td><td>PDE3-inhibitor</td><td>Beta-agonist</td><td>Beta-agonist</td></tr>
+        <tr><td><strong>Clearance</strong></td><td>Rapid (enzymatic)</td><td>Slow (renal)</td><td>Rapid (enzymatic)</td><td>Rapid (enzymatic)</td></tr>
+        <tr><td><strong>Inotropy</strong></td><td>Strong</td><td>Moderate</td><td>Strong</td><td>Strong</td></tr>
+        <tr><td><strong>Tachycardia</strong></td><td>Strong</td><td>Mild</td><td>Strong</td><td>Strong</td></tr>
+        <tr><td><strong>Proarrhythmia</strong></td><td>Strong</td><td>Moderate</td><td>Strong</td><td>Strong</td></tr>
+        <tr><td><strong>Vasodilation</strong></td><td>Mild</td><td>Strong</td><td>None</td><td>None</td></tr>
+        <tr><td><strong>Afterload/PCWP</strong></td><td>Reduced</td><td>Strongly reduced</td><td>Increased</td><td>Increased</td></tr>
+        <tr><td><strong>PVR</strong></td><td>No change</td><td>Reduced</td><td>Increased</td><td>Increased</td></tr>
+        <tr><td><strong>Ideal Use</strong></td><td>Pre-shock (SBP>70), Shock (with NE)</td><td>Chronic HF/RVF, Pulmonary HTN</td><td>Bradycardia, Low SVR</td><td>Bradycardia, Low SVR</td></tr>
+      </tbody>
+    </table></div>
   </div>
 
-  <div class="card"><h3>🔻 Vasodilators</h3>  
-    <div style="overflow-x:auto;"><table class="supply-table"><thead><tr><th></th><th>Nitroglycerin</th><th>Nitroprusside</th><th>Nicardipine</th><th>Clevidipine</th></tr></thead>  
-      <tbody>  
-        <tr><td><strong>Dose</strong></td><td>5–400 mcg/min</td><td>0.5–10 mcg/kg/min</td><td>5–15 mg/hr</td><td>1–16 mg/hr</td></tr>  
-        <tr><td><strong>Mechanism</strong></td><td>NO vasodilator</td><td>NO vasodilator</td><td>DHP CCB</td><td>DHP CCB</td></tr>  
-        <tr><td><strong>Half life</strong></td><td>1–4 min</td><td>2 min</td><td>3 min</td><td>15 min</td></tr>  
-        <tr><td><strong>Notes</strong></td><td>Arterial vasodilator at >100 mcg/min</td><td>Rule of 3s; thiocyanate toxicity</td><td></td><td></td></tr>  
-      </tbody>  
-    </table></div>  
+  <div class="card"><h3>🔻 Vasodilators</h3>
+    <div style="overflow-x:auto;"><table class="supply-table"><thead><tr><th></th><th>Nitroglycerin</th><th>Nitroprusside</th><th>Nicardipine</th><th>Clevidipine</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Dose</strong></td><td>5–400 mcg/min</td><td>0.5–10 mcg/kg/min</td><td>5–15 mg/hr</td><td>1–16 mg/hr</td></tr>
+        <tr><td><strong>Mechanism</strong></td><td>NO vasodilator</td><td>NO vasodilator</td><td>DHP CCB</td><td>DHP CCB</td></tr>
+        <tr><td><strong>Half life</strong></td><td>1–4 min</td><td>2 min</td><td>~45 min (effect lasts hours)</td><td>~1 min</td></tr>
+        <tr><td><strong>Notes</strong></td><td>Arterial vasodilator at >100 mcg/min</td><td>Rule of 3s; thiocyanate toxicity</td><td></td><td></td></tr>
+      </tbody>
+    </table></div>
   </div>
 
-  <div class="card"><h3>🔢 Normal Hemodynamics</h3>  
-    <table class="supply-table"><thead><tr><th>Parameter</th><th>Normal</th></tr></thead>  
-      <tbody><tr><td>RA</td><td>2-8 mmHg</td></tr><tr><td>RV</td><td>15-30/0-8 mmHg</td></tr><tr><td>PA</td><td>15-30/6-16 mmHg</td></tr><tr><td>PA mean</td><td>10-20 mmHg</td></tr><tr><td>PCWP</td><td>6-15 mmHg</td></tr><tr><td>CO</td><td>4-8 L/min</td></tr><tr><td>CI</td><td>2.5-4.0 L/min/m²</td></tr><tr><td>SVR</td><td>800-1200 dynes·s/cm⁵</td></tr><tr><td>PVR</td><td><3 Wood Units</td></tr><tr><td>SvO₂</td><td>60-80%</td></tr></tbody>  
-    </table>  
+  <div class="card"><h3>🔢 Normal Hemodynamics</h3>
+    <table class="supply-table"><thead><tr><th>Parameter</th><th>Normal</th></tr></thead>
+      <tbody><tr><td>RA</td><td>2-8 mmHg</td></tr><tr><td>RV</td><td>15-30/0-8 mmHg</td></tr><tr><td>PA</td><td>15-30/6-16 mmHg</td></tr><tr><td>PA mean</td><td>10-20 mmHg</td></tr><tr><td>PCWP</td><td>6-15 mmHg</td></tr><tr><td>CO</td><td>4-8 L/min</td></tr><tr><td>CI</td><td>2.5-4.0 L/min/m²</td></tr><tr><td>SVR</td><td>800-1200 dynes·s/cm⁵</td></tr><tr><td>PVR</td><td><3 Wood Units</td></tr><tr><td>SvO₂</td><td>60-80%</td></tr></tbody>
+    </table>
   </div>
 
-  <div class="card"><h3>📐 Hemodynamic Equations</h3>  
-    <table class="supply-table"><thead><tr><th>Equation</th><th>Formula</th></tr></thead>  
-      <tbody>  
-        <tr><td><strong>MAP</strong></td><td>(SBP + 2×DBP) / 3</td></tr>  
-        <tr><td><strong>CO (Fick)</strong></td><td>(125 × BSA) / [13.4 × Hgb × (SaO₂ − SvO₂)]</td></tr>  
-        <tr><td><strong>Cardiac Index</strong></td><td>CO / BSA</td></tr>  
-        <tr><td><strong>SVR</strong></td><td>80 × (MAP − CVP) / CO <em style="color:var(--text-light);"> → dynes·s/cm⁵</em></td></tr>  
-        <tr><td><strong>PVR</strong></td><td>(mPAP − PCWP) / CO <em style="color:var(--text-light);"> → Wood Units</em></td></tr>  
-        <tr><td><strong>CPO</strong></td><td>(MAP × CO) / 451</td></tr>  
-        <tr><td><strong>TPG</strong></td><td>mPAP − PCWP <em style="color:var(--text-light);"> (≤12 = WHO Group 2)</em></td></tr>  
-        <tr><td><strong>Stroke Volume</strong></td><td>(CO / HR) × 1000</td></tr>  
-        <tr><td><strong>SV (echo)</strong></td><td>LVOT area × VTI</td></tr>  
-        <tr><td><strong>LVOT Area</strong></td><td>π × (LVOT diameter / 2)²</td></tr>  
-        <tr><td><strong>BSA (Mosteller)</strong></td><td>√(height<sub>cm</sub> × weight<sub>kg</sub> / 3600)</td></tr>  
-        <tr><td><strong>Proportional PP</strong></td><td>(SBP − DBP) / SBP</td></tr>  
-      </tbody>  
-    </table>  
-    <div class="info-box" style="margin-top:10px;"><strong>Proportional Pulse Pressure:</strong>  
-Narrow (<25%): low CO states — cardiogenic shock, tamponade, hypovolemia, aortic stenosis  
-Wide (>40%): vasodilatory/high-output states — sepsis, aortic regurgitation, pregnancy</div>  
+  <div class="card"><h3>📐 Hemodynamic Equations</h3>
+    <table class="supply-table"><thead><tr><th>Equation</th><th>Formula</th></tr></thead>
+      <tbody>
+        <tr><td><strong>MAP</strong></td><td>(SBP + 2×DBP) / 3</td></tr>
+        <tr><td><strong>CO (Fick)</strong></td><td>(125 × BSA) / [13.4 × Hgb × (SaO₂ − SvO₂)]</td></tr>
+        <tr><td><strong>Cardiac Index</strong></td><td>CO / BSA</td></tr>
+        <tr><td><strong>SVR</strong></td><td>80 × (MAP − CVP) / CO <em style="color:var(--text-light);"> → dynes·s/cm⁵</em></td></tr>
+        <tr><td><strong>PVR</strong></td><td>(mPAP − PCWP) / CO <em style="color:var(--text-light);"> → Wood Units</em></td></tr>
+        <tr><td><strong>CPO</strong></td><td>(MAP × CO) / 451</td></tr>
+        <tr><td><strong>TPG</strong></td><td>mPAP − PCWP <em style="color:var(--text-light);"> (≤12 = WHO Group 2)</em></td></tr>
+        <tr><td><strong>Stroke Volume</strong></td><td>(CO / HR) × 1000</td></tr>
+        <tr><td><strong>SV (echo)</strong></td><td>LVOT area × VTI</td></tr>
+        <tr><td><strong>LVOT Area</strong></td><td>π × (LVOT diameter / 2)²</td></tr>
+        <tr><td><strong>BSA (Mosteller)</strong></td><td>√(height<sub>cm</sub> × weight<sub>kg</sub> / 3600)</td></tr>
+        <tr><td><strong>Proportional PP</strong></td><td>(SBP − DBP) / SBP</td></tr>
+      </tbody>
+    </table>
+    <div class="info-box" style="margin-top:10px;"><strong>Proportional Pulse Pressure:</strong><br>Narrow (<25%): low CO states — cardiogenic shock, tamponade, hypovolemia, aortic stenosis<br>Wide (>40%): vasodilatory/high-output states — sepsis, aortic regurgitation, pregnancy</div>
   </div>
 
-  <div class="card"><h3>📐 ACT Targets</h3>  
-    <table class="supply-table"><thead><tr><th>Scenario</th><th>ACT</th></tr></thead>  
-      <tbody><tr><td>Fem sheath pull</td><td><strong>≤150</strong></td></tr><tr><td>IABP removal</td><td><strong>≤150</strong></td></tr><tr><td>PCI (no IIb/IIIa)</td><td>250-300</td></tr><tr><td>PCI (w/ IIb/IIIa)</td><td>200-250</td></tr></tbody>  
-    </table>  
+  <div class="card"><h3>📐 ACT Targets</h3>
+    <table class="supply-table"><thead><tr><th>Scenario</th><th>ACT</th></tr></thead>
+      <tbody><tr><td>Fem sheath pull</td><td><strong>≤150</strong></td></tr><tr><td>IABP removal</td><td><strong>≤150</strong></td></tr><tr><td>PCI (no IIb/IIIa)</td><td>250-300</td></tr><tr><td>PCI (w/ IIb/IIIa)</td><td>200-250</td></tr></tbody>
+    </table>
   </div>
 
-  <div class="card"><h3>💧 Diuretic Management</h3>  
-    <h4>Goals</h4>  
-    <table class="supply-table"><thead><tr><th>Parameter</th><th>Target</th></tr></thead>  
-      <tbody>  
-        <tr><td>CVP</td><td>6–10</td></tr>  
-        <tr><td>Urine output</td><td>150 mL/hr</td></tr>  
-        <tr><td>Total daily UOP</td><td>≥3 L/day</td></tr>  
-        <tr><td>Fluid balance</td><td>Negative 2–3 L/day</td></tr>  
-        <tr><td>Urine Na</td><td>>70 mEq/L</td></tr>  
-      </tbody>  
-    </table>  
-    <h4>Augmentation Strategies</h4>  
-    <table class="supply-table"><thead><tr><th>Agent</th><th>Dose</th><th>Notes</th></tr></thead>  
-      <tbody>  
-        <tr><td><strong>Acetazolamide</strong></td><td>500 mg IV BID-TID</td><td>Contraction alkalosis; consider upfront (ADVOR trial)</td></tr>  
-        <tr><td><strong>3% Hypertonic saline</strong></td><td>150 mL over 3h BID</td><td>Enhances diuresis in AKI and hyponatremia</td></tr>  
-        <tr><td><strong>25% Albumin</strong></td><td>100–200 mL BID</td><td>Useful if albumin <3</td></tr>  
-        <tr><td><strong>Metolazone</strong></td><td>5–10 mg PO BID</td><td>Thiazide-like; sequential nephron blockade</td></tr>  
-        <tr><td><strong>Chlorothiazide</strong></td><td>500–1000 mg IV BID</td><td>IV alternative to metolazone</td></tr>  
-      </tbody>  
-    </table>  
-    <div class="warn-box"><div class="warn-label">⚠️ Refractory</div>If unable to achieve goals → consider CRRT.</div>  
-  </div>  
+  <div class="card"><h3>💧 Diuretic Management</h3>
+    <h4>Goals</h4>
+    <table class="supply-table"><thead><tr><th>Parameter</th><th>Target</th></tr></thead>
+      <tbody>
+        <tr><td>CVP</td><td>6–10</td></tr>
+        <tr><td>Urine output</td><td>150 mL/hr</td></tr>
+        <tr><td>Total daily UOP</td><td>≥3 L/day</td></tr>
+        <tr><td>Fluid balance</td><td>Negative 2–3 L/day</td></tr>
+        <tr><td>Urine Na</td><td>>70 mEq/L</td></tr>
+      </tbody>
+    </table>
+    <h4>Augmentation Strategies</h4>
+    <table class="supply-table"><thead><tr><th>Agent</th><th>Dose</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Acetazolamide</strong></td><td>500 mg IV BID-TID</td><td>Contraction alkalosis; consider upfront (ADVOR trial)</td></tr>
+        <tr><td><strong>3% Hypertonic saline</strong></td><td>150 mL over 3h BID</td><td>Enhances diuresis in AKI and hyponatremia</td></tr>
+        <tr><td><strong>25% Albumin</strong></td><td>100–200 mL BID</td><td>Useful if albumin <3</td></tr>
+        <tr><td><strong>Metolazone</strong></td><td>5–10 mg PO BID</td><td>Thiazide-like; sequential nephron blockade</td></tr>
+        <tr><td><strong>Chlorothiazide</strong></td><td>500–1000 mg IV BID</td><td>IV alternative to metolazone</td></tr>
+      </tbody>
+    </table>
+    <div class="warn-box"><div class="warn-label">⚠️ Refractory</div>If unable to achieve goals → consider CRRT.</div>
+  </div>
 </div>
 
-<!-- RESOURCES TAB -->  
-<div class="tab-content" id="tab-resources">  
-  <div class="card"><h2>📚 Resources</h2>  
-    <ul style="font-size:0.86em;list-style:none;padding:0;">  
-      <li style="padding:10px 0;border-bottom:1px solid var(--border-light);">🔗 <a href="https://www.acc.org" target="_blank" style="color:var(--primary);font-weight:600;">ACC.org</a></li>  
-      <li style="padding:10px 0;border-bottom:1px solid var(--border-light);">🔗 <a href="https://www.ahajournals.org" target="_blank" style="color:var(--primary);font-weight:600;">AHA Journals</a></li>  
-      <li style="padding:10px 0;border-bottom:1px solid var(--border-light);">🔗 <a href="https://www.uptodate.com" target="_blank" style="color:var(--primary);font-weight:600;">UpToDate</a></li>  
-      <li style="padding:10px 0;border-bottom:1px solid var(--border-light);">🔗 <a href="https://litfl.com/ecg-library/" target="_blank" style="color:var(--primary);font-weight:600;">LITFL ECG Library</a></li>  
-      <li style="padding:10px 0;">🔗 <a href="https://northwell.sharepoint.com/sites/NWHPolicies/SIUH-cardiology_clinical_guidelines/Forms/Policy.aspx" target="_blank" style="color:var(--primary);font-weight:600;">SIUH Guidelines (SharePoint)</a></li>  
-    </ul>  
-  </div>  
-  <div class="card"><h3>📚 CCU Reading</h3>  
-    <ul style="font-size:0.84em;padding-left:18px;"><li>Brown — <em>Cardiac Intensive Care</em> 3rd Ed</li><li>Herzog — <em>Herzog's CCU Book</em></li><li>Stouffer — <em>Cardiovascular Hemodynamics</em> 2nd Ed</li></ul>  
-  </div>  
-  <div class="card"><h3>📄 Key Literature</h3>  
-    <div style="padding:14px;background:var(--border-light);border-radius:var(--radius-xs);margin-top:8px;">  
-      <p style="font-size:0.86em;font-weight:700;color:var(--primary-dark);">CICU Patient Selection & Triage</p>  
-      <p style="font-size:0.8em;color:var(--text-mid);margin-top:2px;">van Diepen S, et al. AHA Scientific Statement. <em>Circulation</em>. 2026;153.</p>  
-      <p style="font-size:0.8em;margin-top:6px;">🔗 <a href="https://doi.org/10.1161/CIR.0000000000001438" target="_blank" style="color:var(--primary);font-weight:600;">Read Full Text →</a></p>  
-      <div style="margin-top:10px;font-size:0.8em;color:var(--text);">  
-        <p style="font-weight:700;margin-bottom:4px;">Highlights:</p>  
-        <ul style="padding-left:16px;line-height:1.7;">  
-          <li>Post-PCI STEMI with <strong>Zwolle ≤3</strong> → safe for telemetry (mortality 0-0.5%)</li>  
-          <li>Stable NSTEMI → only 14% develop CCU-level complications</li>  
-          <li><strong>81% of ADHF</strong> don't need CCU therapies in first 48 hrs</li>  
-          <li>SCAI C-E shock → always CCU</li>  
-          <li>All acute aortic syndromes → CCU initially</li>  
-          <li>Uncomplicated post-TAVR → CCU not needed (0.9% mortality)</li>  
-          <li>13.6% of CCU admits are post-procedure with <strong>0.2% mortality</strong></li>  
-        </ul>  
-      </div>  
-    </div>  
-  </div>  
+<!-- RESOURCES TAB -->
+<div class="tab-content" id="tab-resources">
+  <div class="card"><h2>📚 Resources</h2>
+    <ul style="font-size:0.86em;list-style:none;padding:0;">
+      <li style="padding:10px 0;border-bottom:1px solid var(--border-light);">🔗 <a href="https://www.acc.org" target="_blank" style="color:var(--primary);font-weight:600;">ACC.org</a></li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--border-light);">🔗 <a href="https://www.ahajournals.org" target="_blank" style="color:var(--primary);font-weight:600;">AHA Journals</a></li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--border-light);">🔗 <a href="https://www.uptodate.com" target="_blank" style="color:var(--primary);font-weight:600;">UpToDate</a></li>
+      <li style="padding:10px 0;border-bottom:1px solid var(--border-light);">🔗 <a href="https://litfl.com/ecg-library/" target="_blank" style="color:var(--primary);font-weight:600;">LITFL ECG Library</a></li>
+      <li style="padding:10px 0;">🔗 <a href="https://northwell.sharepoint.com/sites/NWHPolicies/SIUH-cardiology_clinical_guidelines/Forms/Policy.aspx" target="_blank" style="color:var(--primary);font-weight:600;">SIUH Guidelines (SharePoint)</a></li>
+    </ul>
+  </div>
+  <div class="card"><h3>📚 CCU Reading</h3>
+    <ul style="font-size:0.84em;padding-left:18px;"><li>Brown — <em>Cardiac Intensive Care</em> 3rd Ed</li><li>Herzog — <em>Herzog's CCU Book</em></li><li>Stouffer — <em>Cardiovascular Hemodynamics</em> 2nd Ed</li></ul>
+  </div>
+  <div class="card"><h3>📄 Key Literature</h3>
+    <div style="padding:14px;background:var(--border-light);border-radius:var(--radius-xs);margin-top:8px;">
+      <p style="font-size:0.86em;font-weight:700;color:var(--primary-dark);">CICU Patient Selection & Triage</p>
+      <p style="font-size:0.8em;color:var(--text-mid);margin-top:2px;">van Diepen S, et al. AHA Scientific Statement. <em>Circulation</em>. 2026;153.</p>
+      <p style="font-size:0.8em;margin-top:6px;">🔗 <a href="https://doi.org/10.1161/CIR.0000000000001438" target="_blank" style="color:var(--primary);font-weight:600;">Read Full Text →</a></p>
+      <div style="margin-top:10px;font-size:0.8em;color:var(--text);">
+        <p style="font-weight:700;margin-bottom:4px;">Highlights:</p>
+        <ul style="padding-left:16px;line-height:1.7;">
+          <li>Post-PCI STEMI with <strong>Zwolle ≤3</strong> → safe for telemetry (mortality 0-0.5%)</li>
+          <li>Stable NSTEMI → only 14% develop CCU-level complications</li>
+          <li><strong>81% of ADHF</strong> don't need CCU therapies in first 48 hrs</li>
+          <li>SCAI C-E shock → always CCU</li>
+          <li>All acute aortic syndromes → CCU initially</li>
+          <li>Uncomplicated post-TAVR → CCU not needed (0.9% mortality)</li>
+          <li>13.6% of CCU admits are post-procedure with <strong>0.2% mortality</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
 
-<footer>  
-  <p>SIUH Cardiology Fellowship Hub • Internal Use Only</p>  
-  <p>Last updated: <span id="update-date"></span></p>  
-  <p style="margin-top:6px;"><a href="mailto:smoussa6@gmail.com">📧 Report Issue / Suggest Edit</a></p>  
-</footer>  
+<footer>
+  <p>SIUH Cardiology Fellowship Hub • Internal Use Only</p>
+  <!-- UPDATE THIS DATE WHENEVER YOU EDIT THE SITE -->
+  <p>Last updated: October 28, 2026</p>
+  <p class="disclaimer">Reflects SIUH local practice. Verify with your attending.</p>
+  <p style="margin-top:6px;"><a href="mailto:smoussa6@gmail.com">📧 Report Issue / Suggest Edit</a></p>
+</footer>
 </div>
 
-<script>  
-const SITE_PASSWORD='siuhcards';  
-function checkPassword(){const i=document.getElementById('pw-input').value;if(i===SITE_PASSWORD){document.getElementById('password-screen').classList.add('hidden');document.getElementById('app').classList.add('visible');localStorage.setItem('siuh_auth','true');}else{document.getElementById('pw-error').textContent='Incorrect password.';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus();}}  
-if(localStorage.getItem('siuh_auth')==='true'){document.getElementById('password-screen').classList.add('hidden');document.getElementById('app').classList.add('visible');}  
+<script>
+const SITE_PASSWORD='siuhcards';
+function checkPassword(){const i=document.getElementById('pw-input').value;if(i===SITE_PASSWORD){document.getElementById('password-screen').classList.add('hidden');document.getElementById('app').classList.add('visible');localStorage.setItem('siuh_auth','true');}else{document.getElementById('pw-error').textContent='Incorrect password.';document.getElementById('pw-input').value='';document.getElementById('pw-input').focus();}}
+if(localStorage.getItem('siuh_auth')==='true'){document.getElementById('password-screen').classList.add('hidden');document.getElementById('app').classList.add('visible');}
 document.getElementById('pw-input').addEventListener('keypress',function(e){if(e.key==='Enter')checkPassword();});
 
 function switchTab(t){document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById('tab-'+t).classList.add('active');const n=['home','procedures','rotations','phones','quickref','resources'],i=n.indexOf(t),b=document.querySelectorAll('.tab-btn');if(i>=0&&b[i])b[i].classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
@@ -904,7 +901,33 @@ function toggleRotation(c){const was=c.classList.contains('open');document.query
 
 function togglePhoneGroup(g){g.classList.toggle('open');}
 
-document.getElementById('update-date').textContent=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});  
-</script>  
-</body>  
-</html>  
+
+// Always OPEN a procedure (used by Home quick-access cards). toggleProc() can close it.
+function openProcedure(id){
+  switchTab('procedures');
+  const item=document.getElementById('proc-'+id);
+  if(!item)return;
+  if(!item.classList.contains('open')) toggleProc(id);
+  else setTimeout(()=>item.scrollIntoView({behavior:'smooth',block:'start'}),100);
+}
+
+// ---- Tap-to-call for 4-digit extensions ----
+// Extensions are dialed from a cell as 718-226-XXXX. If that ever turns out wrong,
+// set EXT_PREFIX to '' and the extensions go back to plain text.
+const EXT_PREFIX='+1718226';
+document.querySelectorAll('a[href="tel:"]').forEach(a=>{
+  const exts=a.textContent.split('/').map(s=>s.trim()).filter(Boolean);
+  if(!EXT_PREFIX){const s=document.createElement('span');s.className='code';s.textContent=a.textContent;a.replaceWith(s);return;}
+  const wrap=document.createElement('span');wrap.className='ext-group';
+  exts.forEach(x=>{const l=document.createElement('a');l.href=/^\d{4}$/.test(x)?'tel:'+EXT_PREFIX+x:'tel:'+x.replace(/\D/g,'');l.textContent=x;wrap.appendChild(l);});
+  a.replaceWith(wrap);
+});
+
+// Keyboard access + screen-reader roles for tappable headers/cards
+document.querySelectorAll('.proc-header,.rotation-header,.phone-group-header,.quick-card').forEach(el=>{
+  el.setAttribute('role','button');el.tabIndex=0;
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();el.click();}});
+});
+</script>
+</body>
+</html>
